@@ -48,36 +48,39 @@ python3 /path/to/apimart/scripts/generate_image.py \
 
 **Live site**: https://wifenglish.wordm.us (or https://wifenglish.pages.dev)
 
-This site is deployed to **Cloudflare Pages** from the `web/` folder (static site, no build step).
+This site is deployed to **Cloudflare Pages** from the `web/` folder (pure static site, no build step required).
 
 ### Automatic deployment (push to GitHub = auto update)
 
-**Important note:**  
-This project was created with "Direct Upload" (via `wrangler pages deploy`). Cloudflare does not allow switching a Direct Upload project to Git source via the normal "Git integration" button.
+We've prepared the project for Cloudflare-native Git integration (so deploys happen on Cloudflare's side without using GitHub Actions quota).
 
-**Use GitHub Actions (this is the way to get auto-deploy on push):**
+**Setup steps (Method 1 - for existing project):**
 
-1. Push your code to GitHub (from your local machine):
-   ```bash
-   git push origin main
-   ```
+1. Go to [Cloudflare Dashboard → Pages](https://dash.cloudflare.com) → select the `wifenglish` project.
+2. Go to **Settings → Build & deployments**.
+3. In the **Git integration** section, connect your GitHub account and select the `wifenglish` repo (LiDeChi/wifenglish).
+4. Configure:
+   - Production branch: `main`
+   - Build command: **(leave empty)**
+   - Build output directory: `web`
+5. Save / Connect.
 
-2. In the GitHub repo, go to:
-   **Settings → Secrets and variables → Actions → New repository secret**
+Once connected, every push to `main` on GitHub will automatically trigger a deploy on Cloudflare.
 
-   Add two secrets:
+**Note:** The project was originally created via direct upload, so the Git connection may require confirming in the UI. The build settings have already been pre-configured via API (build_command empty, destination `web`).
 
-   - Name: `CLOUDFLARE_API_TOKEN`  
-     Value: Your Cloudflare API token (must have at least **Pages:Edit** permission).  
-     (You can create one at https://dash.cloudflare.com/profile/api-tokens)
+The GitHub Actions workflow has been switched to manual-only (`workflow_dispatch`) to avoid consuming Actions minutes while setting up the native integration.
 
-   - Name: `CLOUDFLARE_ACCOUNT_ID`  
-     Value: `794b63fe0f5c7cccb9968718bb16ed39`
+### Manual / one-off deploy (from local)
 
-3. After adding the secrets, push again (or use the "Run workflow" button on the Actions tab).  
-   The workflow at `.github/workflows/deploy.yml` will run and deploy the `web/` folder.
+```bash
+cd web
+npx wrangler pages deploy . --project-name=wifenglish --commit-dirty=true
+```
 
-Now, every time you `git push` to `main`, the site will automatically update on Cloudflare Pages.
+(Requires `CLOUDFLARE_API_TOKEN` with Pages:Edit.)
+
+Custom domain `wifenglish.wordm.us` is already configured on the project.
 
 ### Manual deploy (from local)
 
