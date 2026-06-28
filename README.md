@@ -46,19 +46,45 @@ python3 /path/to/apimart/scripts/generate_image.py \
 
 **GitHub**: https://github.com/LiDeChi/wifenglish
 
-**Live site**: https://wifenglish.wordm.us  (or https://wifenglish.pages.dev)
+**Live site**: https://wifenglish.wordm.us (or https://wifenglish.pages.dev)
 
-Deployed via Cloudflare Pages from the `web/` directory (pure static).
+This site is deployed to **Cloudflare Pages** from the `web/` folder (static site, no build step).
+
+### Automatic deployment (push to GitHub = auto update)
+
+**Recommended (easiest):**
+
+1. Go to [Cloudflare Dashboard → Pages](https://dash.cloudflare.com)
+2. Select the `wifenglish` project
+3. Go to **Settings → Build & deployments → Git integration**
+4. Connect your GitHub account and select the `wifenglish` repo
+5. Configure:
+   - Production branch: `main`
+   - Build command: *(leave empty)*
+   - Build output directory: `web`
+6. Save
+
+After this, **every `git push` to `main`** will automatically trigger a new deployment.
+
+**Alternative: GitHub Actions**
+
+We have added `.github/workflows/deploy.yml`.
+
+You need to add these two **Repository Secrets** (Settings → Secrets and variables → Actions):
+
+- `CLOUDFLARE_API_TOKEN` — your Cloudflare API token (with Pages:Edit permission)
+- `CLOUDFLARE_ACCOUNT_ID` — `794b63fe0f5c7cccb9968718bb16ed39`
+
+Then any push to `main` will deploy via the workflow.
+
+### Manual deploy (from local)
 
 ```bash
-# Deploy (after git push or from local)
 cd web
-npx wrangler pages deploy . --project-name=wifenglish
+npx wrangler pages deploy . --project-name=wifenglish --commit-dirty=true
 ```
 
-To bind custom domain `wifenglish.wordm.us` (already configured):
-- DNS: CNAME wifenglish -> wifenglish.pages.dev (proxied)
-- Added via Cloudflare API to project custom domains.
+Custom domain `wifenglish.wordm.us` is already added (DNS + Pages project).
 
 All dialogues are designed to be educational, natural, and chained across levels.
 
