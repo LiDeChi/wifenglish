@@ -29,10 +29,21 @@ python3 -m http.server 5173
 
 ## Audio Generation (Boson Higgs)
 ```bash
-export BOSON_API_KEY=bai-MvuD-6LzgliIUQAxQ007pRyOfVPBfuM6qymny_nKlsE1sPNF
+export BOSON_API_KEY=your_boson_api_key
 python3 scripts/tts_boson.py \
   --text "<|emotion:friendly|><|style:professional|>Hello, welcome..." \
   --out audio/greet.mp3
+```
+
+For dialogue lessons where the same speaker must keep a consistent voice across every
+line, prefer the reusable custom voice workflow:
+
+```bash
+python3 scripts/generate_lesson_audio_ref.py \
+  --lesson lesson-data.json \
+  --output-dir audio/lesson01 \
+  --force \
+  --sync-web-dir web/audio/lesson01
 ```
 
 ## Generate Images (APIMart)

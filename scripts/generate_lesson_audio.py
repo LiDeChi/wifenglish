@@ -11,9 +11,7 @@ from pathlib import Path
 
 import requests
 
-KEY = os.environ.get(
-    "BOSON_API_KEY", "bai-MvuD-6LzgliIUQAxQ007pRyOfVPBfuM6qymny_nKlsE1sPNF"
-)
+KEY = os.environ.get("BOSON_API_KEY")
 URL = "https://api.boson.ai/v1/audio/speech"
 MODEL = "higgs-audio-v3-tts"
 
@@ -30,6 +28,9 @@ def clean_text(text: str) -> str:
 
 
 def synthesize(text: str, voice: str, out_path: str):
+    if not KEY:
+        raise RuntimeError("BOSON_API_KEY is not set")
+
     headers = {"Authorization": f"Bearer {KEY}", "Content-Type": "application/json"}
     payload = {"model": MODEL, "input": text, "voice": voice, "response_format": "mp3"}
     resp = requests.post(URL, headers=headers, json=payload, timeout=60)

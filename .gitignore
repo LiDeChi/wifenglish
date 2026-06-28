@@ -19,6 +19,7 @@ npm-debug.log*
 # Optional local only
 __pycache__/
 *.py[cod]
+audio/voices.json
 
 # Large raw source images (HEIC). Extracted lesson content is kept and pushed.
 家具/

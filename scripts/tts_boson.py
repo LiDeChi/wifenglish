@@ -5,7 +5,7 @@ Supports emotion injection via inline tags in the input text.
 Usage:
   python scripts/tts_boson.py --text "Hello, how are you?" --out audio/greet.mp3 --emotion friendly
   or pass full tagged text in --text
-Key is read from env BOSON_API_KEY or provided.
+Key is read from env BOSON_API_KEY.
 """
 import os
 import requests
@@ -16,7 +16,10 @@ API_URL = "https://api.boson.ai/v1/audio/speech"
 MODEL = "higgs-audio-v3-tts"  # or higgs-tts-3 per docs
 
 def synthesize(text: str, out_path: str, voice: str = "default", response_format: str = "mp3"):
-    key = os.environ.get("BOSON_API_KEY") or "bai-MvuD-6LzgliIUQAxQ007pRyOfVPBfuM6qymny_nKlsE1sPNF"
+    key = os.environ.get("BOSON_API_KEY")
+    if not key:
+        raise RuntimeError("BOSON_API_KEY is not set")
+
     headers = {
         "Authorization": f"Bearer {key}",
         "Content-Type": "application/json",

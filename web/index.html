@@ -223,38 +223,7 @@
                     <p class="text-sm text-[var(--text-tertiary)] mt-0.5">点击课程进入自动播放</p>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div
-                        onclick="enterPlayer()"
-                        class="cursor-pointer card border border-[var(--border)] rounded-xl p-5 transition hover:border-[var(--border-strong)]"
-                    >
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <div class="text-xs text-[var(--text-tertiary)] tracking-widest font-medium">
-                                    LESSON 01
-                                </div>
-                                <div class="text-lg font-semibold mt-1.5">购买客厅沙发套装</div>
-                                <div class="text-sm text-[var(--text-secondary)] mt-0.5">
-                                    Buying a Living Room Sofa Set
-                                </div>
-                            </div>
-                            <div class="text-right text-xs text-[var(--text-tertiary)]">
-                                <div class="border border-[var(--border)] px-2 py-0.5 rounded-md">6 场景</div>
-                                <div class="mt-1.5">自动连续播放</div>
-                            </div>
-                        </div>
-                        <div class="mt-4 text-xs text-[var(--text-tertiary)] leading-relaxed">
-                            跟随着张先生完成从进店到下单的全流程对话练习
-                        </div>
-                    </div>
-
-                    <div
-                        class="card border border-[var(--border)] rounded-xl p-5 opacity-50"
-                    >
-                        <div class="text-xs text-[var(--text-tertiary)]">更多课程即将上线</div>
-                        <div class="text-base font-medium mt-2">敬请期待</div>
-                    </div>
-                </div>
+                <div id="lesson-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
             </div>
 
             <!-- PLAYER VIEW -->
@@ -267,8 +236,8 @@
                     class="flex-shrink-0 flex items-center justify-center border-b border-[var(--border)] py-3"
                 >
                     <div class="text-center">
-                        <div class="text-xs text-[var(--text-tertiary)] tracking-widest font-medium">LESSON 01</div>
-                        <div class="text-sm font-medium mt-0.5">购买客厅沙发套装</div>
+                        <div id="player-lesson-number" class="text-xs text-[var(--text-tertiary)] tracking-widest font-medium">LESSON 01</div>
+                        <div id="player-lesson-title" class="text-sm font-medium mt-0.5">购买客厅沙发套装</div>
                     </div>
                 </div>
 
@@ -357,6 +326,50 @@
         </div>
 
         <script>
+            const LESSONS = [
+                {
+                    number: "01",
+                    titleZh: "购买客厅沙发套装",
+                    titleEn: "Buying a Living Room Sofa Set",
+                    description: "跟随着张先生完成从进店到下单的全流程对话练习",
+                    dataUrl: "lesson-data.json",
+                    imageDir: "visuals",
+                    audioDir: "audio/lesson01",
+                    sceneCount: 6,
+                },
+                {
+                    number: "02",
+                    titleZh: "挑选理想沙发",
+                    titleEn: "Choosing the Perfect Sofa",
+                    description: "学习材质、颜色、尺寸和试坐相关表达",
+                    dataUrl: "lesson-02-data.json",
+                    imageDir: "visuals/lesson02",
+                    audioDir: "audio/lesson02",
+                    sceneCount: 6,
+                },
+                {
+                    number: "03",
+                    titleZh: "大宗订单谈判",
+                    titleEn: "Negotiating a Big Order",
+                    description: "练习数量、质量保证、报价和下一步沟通",
+                    dataUrl: "lesson-03-data.json",
+                    imageDir: "visuals/lesson03",
+                    audioDir: "audio/lesson03",
+                    sceneCount: 6,
+                },
+                {
+                    number: "04",
+                    titleZh: "参观工厂与最终成交",
+                    titleEn: "Factory Visit and Final Deal",
+                    description: "覆盖工厂参观、下单、付款、包装和交货安排",
+                    dataUrl: "lesson-04-data.json",
+                    imageDir: "visuals/lesson04",
+                    audioDir: "audio/lesson04",
+                    sceneCount: 6,
+                },
+            ];
+
+            let currentLesson = LESSONS[0];
             let lessonData = null;
             let currentSceneIdx = 0;
             let currentLineIdx = 0;
@@ -364,6 +377,37 @@
             let currentAudio = null;
             let allLines = [];
             let globalSpeed = 0.75;
+
+            function renderLessonGrid() {
+                const grid = document.getElementById("lesson-grid");
+                if (!grid) return;
+
+                grid.innerHTML = LESSONS.map((lesson, idx) => `
+                    <div
+                        onclick="enterPlayer(${idx})"
+                        class="cursor-pointer card border border-[var(--border)] rounded-xl p-5 transition hover:border-[var(--border-strong)]"
+                    >
+                        <div class="flex justify-between items-start gap-4">
+                            <div class="min-w-0">
+                                <div class="text-xs text-[var(--text-tertiary)] tracking-widest font-medium">
+                                    LESSON ${lesson.number}
+                                </div>
+                                <div class="text-lg font-semibold mt-1.5">${lesson.titleZh}</div>
+                                <div class="text-sm text-[var(--text-secondary)] mt-0.5">
+                                    ${lesson.titleEn}
+                                </div>
+                            </div>
+                            <div class="text-right text-xs text-[var(--text-tertiary)] flex-shrink-0">
+                                <div class="border border-[var(--border)] px-2 py-0.5 rounded-md">${lesson.sceneCount} 场景</div>
+                                <div class="mt-1.5">自动连续播放</div>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-xs text-[var(--text-tertiary)] leading-relaxed">
+                            ${lesson.description}
+                        </div>
+                    </div>
+                `).join("");
+            }
 
             function setGlobalSpeed(speed) {
                 globalSpeed = speed;
@@ -389,7 +433,11 @@
                 stop();
             }
 
-            function enterPlayer() {
+            function enterPlayer(lessonIdx = 0) {
+                const nextLesson = LESSONS[lessonIdx] || LESSONS[0];
+                const lessonChanged = currentLesson !== nextLesson;
+                currentLesson = nextLesson;
+
                 const container = document.getElementById("app-container");
                 if (container) container.classList.add("player-expanded");
 
@@ -404,7 +452,7 @@
                     window.scrollTo({ top: 0, behavior: 'instant' });
                 }, 5);
 
-                if (!lessonData || !allLines.length) {
+                if (!lessonData || !allLines.length || lessonChanged) {
                     loadLesson().then(() => {
                         renderSubtitleList();
                         showScene(0, 0);
@@ -419,8 +467,15 @@
             }
 
             async function loadLesson() {
-                const res = await fetch("lesson-data.json");
+                const lessonNo = document.getElementById("player-lesson-number");
+                const lessonTitle = document.getElementById("player-lesson-title");
+                if (lessonNo) lessonNo.textContent = `LESSON ${currentLesson.number}`;
+                if (lessonTitle) lessonTitle.textContent = currentLesson.titleZh;
+
+                const res = await fetch(currentLesson.dataUrl);
                 lessonData = await res.json();
+                currentSceneIdx = 0;
+                currentLineIdx = 0;
 
                 allLines = [];
                 lessonData.scenes.forEach((scene, sIdx) => {
@@ -534,6 +589,34 @@
                 return result;
             }
 
+            function setSceneImage(sceneId) {
+                const img = document.getElementById("scene-image");
+                if (!img) return;
+
+                const sceneName = `scene-${String(sceneId).padStart(2, "0")}.jpg`;
+                const primary = `${currentLesson.imageDir}/${sceneName}`;
+                const fallback = `visuals/${sceneName}`;
+                const placeholder = `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
+                        <rect width="1200" height="675" fill="#171717"/>
+                        <text x="600" y="324" fill="#fafafa" font-family="Arial, sans-serif" font-size="36" text-anchor="middle">Scene image pending</text>
+                        <text x="600" y="374" fill="#a3a3a3" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">LESSON ${currentLesson.number} / SCENE ${String(sceneId).padStart(2, "0")}</text>
+                    </svg>
+                `)}`;
+
+                img.onerror = () => {
+                    if (img.dataset.fallbackUsed === "0" && primary !== fallback) {
+                        img.dataset.fallbackUsed = "1";
+                        img.src = fallback;
+                        return;
+                    }
+                    img.onerror = null;
+                    img.src = placeholder;
+                };
+                img.dataset.fallbackUsed = "0";
+                img.src = primary;
+            }
+
             function showScene(sceneIdx, lineIdx) {
                 const scene = lessonData.scenes[sceneIdx];
                 if (!scene) return;
@@ -541,8 +624,7 @@
                 currentSceneIdx = sceneIdx;
                 currentLineIdx = lineIdx;
 
-                const img = document.getElementById("scene-image");
-                img.src = `visuals/scene-${String(scene.id).padStart(2, "0")}.jpg`;
+                setSceneImage(scene.id);
 
                 const line = scene.lines[lineIdx];
                 if (line) {
@@ -594,7 +676,7 @@
                 const line = scene.lines[currentLineIdx];
                 if (!line) return;
 
-                const fname = `audio/lesson01/scene${String(scene.id).padStart(2, "0")}_line${currentLineIdx.toString().padStart(2, "0")}.mp3`;
+                const fname = `${currentLesson.audioDir}/scene${String(scene.id).padStart(2, "0")}_line${currentLineIdx.toString().padStart(2, "0")}.mp3`;
 
                 currentAudio = new Audio(fname);
                 currentAudio.playbackRate = globalSpeed;
@@ -723,10 +805,11 @@
                 if (home) home.classList.remove("hidden");
                 if (player) player.classList.add("hidden");
 
+                renderLessonGrid();
                 setupControls();
 
                 try {
-                    const res = await fetch("lesson-data.json");
+                    const res = await fetch(currentLesson.dataUrl);
                     lessonData = await res.json();
                     allLines = [];
                     lessonData.scenes.forEach((scene, sIdx) => {
