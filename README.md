@@ -42,12 +42,23 @@ python3 /path/to/apimart/scripts/generate_image.py \
   --prompt "..." --out visuals/levelX.jpg --resolution 1k
 ```
 
-## Deploy to Vercel (online)
+## Deploy
+
+**GitHub**: https://github.com/LiDeChi/wifenglish
+
+**Live site**: https://wifenglish.wordm.us  (or https://wifenglish.pages.dev)
+
+Deployed via Cloudflare Pages from the `web/` directory (pure static).
+
 ```bash
+# Deploy (after git push or from local)
 cd web
-npx vercel --prod
-# or use the MCP: deploy_to_vercel
+npx wrangler pages deploy . --project-name=wifenglish
 ```
+
+To bind custom domain `wifenglish.wordm.us` (already configured):
+- DNS: CNAME wifenglish -> wifenglish.pages.dev (proxied)
+- Added via Cloudflare API to project custom domains.
 
 All dialogues are designed to be educational, natural, and chained across levels.
 

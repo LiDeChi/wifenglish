@@ -1,11 +1,14 @@
 #!/bin/bash
 set -e
-echo "🚀 Deploying WifEnglish to Vercel..."
+echo "🚀 Deploying WifEnglish to Cloudflare Pages..."
 cd "$(dirname "$0")"
-if ! command -v vercel &> /dev/null; then
-  echo "Installing Vercel CLI..."
-  npm i -g vercel
+
+# Use wrangler (recommended)
+if ! command -v wrangler &> /dev/null; then
+  echo "Using npx wrangler..."
 fi
-echo "Please run 'vercel login' if you haven't already (one-time)."
-vercel --prod --yes
-echo "✅ Deployed!"
+
+npx wrangler pages deploy . --project-name=wifenglish --commit-dirty=true
+
+echo "✅ Deployed to https://wifenglish.pages.dev"
+echo "Custom domain: https://wifenglish.wordm.us (configure DNS + Pages domain if needed)"
