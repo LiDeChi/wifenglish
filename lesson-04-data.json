@@ -1,0 +1,293 @@
+{
+  "lesson_id": "factory-visit-04",
+  "title_en": "Factory Visit and Final Deal",
+  "title_zh": "参观工厂与最终成交",
+  "description": "The customer visits the factory, confirms the order, discusses payment, and arranges delivery.",
+  "visual_style": "See style-guide.md for full consistency rules",
+  "scenes": [
+    {
+      "id": 1,
+      "image": "visuals/lesson04/scene-01.jpg",
+      "title_en": "Arriving at the Factory",
+      "title_zh": "到达工厂",
+      "description": "Li Wei picks up the customer and shows the factory.",
+      "lines": [
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Welcome to our factory. Let me show you around.",
+          "zh": "欢迎来到我们的工厂。让我带您参观一下。",
+          "vocab": [
+            "factory",
+            "show you around"
+          ]
+        },
+        {
+          "speaker": "Customer",
+          "role": "customer",
+          "en": "Thank you. How big is your factory?",
+          "zh": "谢谢。你们的工厂多大？",
+          "vocab": [
+            "How big"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "It covers about 10,000 square meters. We have about 120 workers.",
+          "zh": "大约占地一万平米。我们有大约120名工人。",
+          "vocab": [
+            "square meters",
+            "workers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "image": "visuals/lesson04/scene-02.jpg",
+      "title_en": "The Workshop",
+      "title_zh": "车间",
+      "description": "They visit the production workshop.",
+      "lines": [
+        {
+          "speaker": "Customer",
+          "role": "customer",
+          "en": "Can we have a look at the workshop?",
+          "zh": "我们可以看一下车间吗？",
+          "vocab": [
+            "workshop"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Of course. This way please. This is where we make the frames.",
+          "zh": "当然。请这边走。这是我们做框架的地方。",
+          "vocab": [
+            "frames"
+          ]
+        },
+        {
+          "speaker": "Customer",
+          "role": "customer",
+          "en": "Your company is very big. I'm impressed.",
+          "zh": "你们公司很大。我印象深刻。",
+          "vocab": [
+            "impressed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "image": "visuals/lesson04/scene-03.jpg",
+      "title_en": "Placing the Order",
+      "title_zh": "下订单",
+      "description": "The customer decides to place the order after the visit.",
+      "lines": [
+        {
+          "speaker": "Customer",
+          "role": "customer",
+          "en": "I'm satisfied with your factory. Let's make the order now.",
+          "zh": "我对你们的工厂很满意。我们现在下单吧。",
+          "vocab": [
+            "satisfied",
+            "make the order"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Great. So it's 100 desks and 100 chairs. The total is 110,000 RMB.",
+          "zh": "太好了。那就是100张桌子和100张椅子。总共11万元。",
+          "vocab": [
+            "total"
+          ]
+        },
+        {
+          "speaker": "Customer",
+          "role": "customer",
+          "en": "Can you deliver in two weeks?",
+          "zh": "你们能在两周内交货吗？",
+          "vocab": [
+            "deliver",
+            "in two weeks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "image": "visuals/lesson04/scene-04.jpg",
+      "title_en": "Payment Terms",
+      "title_zh": "付款条款",
+      "description": "They discuss deposit and balance payment.",
+      "lines": [
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "You can pay 30% deposit now and the balance before delivery.",
+          "zh": "您可以现在付30%定金，余款在发货前付清。",
+          "vocab": [
+            "deposit",
+            "balance",
+            "before delivery"
+          ]
+        },
+        {
+          "speaker": "Customer",
+          "role": "customer",
+          "en": "Do you accept T/T or card?",
+          "zh": "你们接受转账还是刷卡？",
+          "vocab": [
+            "T/T",
+            "card"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Both are fine. The deposit is 33,000 RMB.",
+          "zh": "都可以。定金是3万3千元。",
+          "vocab": [
+            "deposit"
+          ]
+        },
+        {
+          "speaker": "Customer",
+          "role": "customer",
+          "en": "No problem. I'll pay by card now.",
+          "zh": "没问题。我现在刷卡。",
+          "vocab": [
+            "pay by card"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "image": "visuals/lesson04/scene-05.jpg",
+      "title_en": "Packing and Volume",
+      "title_zh": "包装与体积",
+      "description": "They confirm packing details and shipping volume.",
+      "lines": [
+        {
+          "speaker": "Customer",
+          "role": "customer",
+          "en": "How do you pack the furniture?",
+          "zh": "你们怎么包装家具？",
+          "vocab": [
+            "pack"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Ordinary packing is carton with sponge. Wooden crates are available for extra cost.",
+          "zh": "普通包装是纸箱加海绵。木箱需要额外付费。",
+          "vocab": [
+            "carton",
+            "sponge",
+            "wooden crates"
+          ]
+        },
+        {
+          "speaker": "Customer",
+          "role": "customer",
+          "en": "What is the total volume?",
+          "zh": "总体积是多少？",
+          "vocab": [
+            "volume"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "It's about 35 CBM in total. A 40 HQ container holds about 68 CBM.",
+          "zh": "总共大约35立方米。40尺高柜大约能装68立方米。",
+          "vocab": [
+            "CBM",
+            "40 HQ container"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "image": "visuals/lesson04/scene-06.jpg",
+      "title_en": "Delivery Arrangement",
+      "title_zh": "交货安排",
+      "description": "They finalize the delivery schedule and say goodbye.",
+      "lines": [
+        {
+          "speaker": "Customer",
+          "role": "customer",
+          "en": "When can you deliver the goods?",
+          "zh": "你们什么时候可以发货？",
+          "vocab": [
+            "deliver the goods"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "In two weeks. We will load the container next Friday.",
+          "zh": "两周后。我们下周五装柜。",
+          "vocab": [
+            "load the container"
+          ]
+        },
+        {
+          "speaker": "Customer",
+          "role": "customer",
+          "en": "Can you make it one week? We need them urgently.",
+          "zh": "能缩短到一周吗？我们急需。",
+          "vocab": [
+            "urgently"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "We are very busy, but we will try our best.",
+          "zh": "我们很忙，但会尽力。",
+          "vocab": [
+            "try our best"
+          ]
+        }
+      ]
+    }
+  ],
+  "key_vocab_summary": [
+    "factory",
+    "show you around",
+    "square meters",
+    "workers",
+    "workshop",
+    "frames",
+    "impressed",
+    "satisfied",
+    "make the order",
+    "total",
+    "deliver",
+    "in two weeks",
+    "deposit",
+    "balance",
+    "before delivery",
+    "T/T",
+    "card",
+    "pay by card",
+    "pack",
+    "carton",
+    "sponge",
+    "wooden crates",
+    "volume",
+    "CBM",
+    "40 HQ container",
+    "deliver the goods",
+    "load the container",
+    "urgently",
+    "try our best"
+  ]
+}

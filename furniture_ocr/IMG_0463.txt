@@ -1,0 +1,25 @@
+Fg
+USD? ao o
+(2) Customer: I don’t have RMB here. Can I pay a an a
+我 现在 没有 人 民 币 。 我 可 以 用 美 7 AS odd
+Seller: Yes, We cantake it, .
+可 以 ， 我 们 也 收 。
+(3) Customer: What is your Account No.? oa
+你 账号 是 多 少 ?
+Seller: 622 288 3991 2882 9939.
+Customer: Which bank?
+量 哪个 银行 的 ?
+> aK Seller: Bank of China.
+中 国 银行 。
+ae HRT
+4 ) © 中 国 银行 BOC -- Bank of China
+| . CS 中 国 建设 银行 CCB -- China Construction Bank
+_ 1 E ® 中 国 农业 银行 ”ABC -- Agricultural Bank of China
+= 人 ， | ®) 中 国 工 商 银 行 ICBC -- Industrial and Commercial Bank of China
+有 入 中 国民 生 银 行 CMBC-- China Minsheng Banking Corp. Led
+ak 中 国光 大 银行 CEB ~ China Everbright Bank
+本 ， | a 广东 发 展 银 行 GDB -- Guangdong Development Bank
+> ££. @ 招商 银行 CMB -- China Merchants Bank
+— HH M4ARGF = CIB-- Industrial Bank Corp. Ltd
+; Fe Soa ic) 交通 银行 BCM -- Bank of Communications PT 一
+| tt ~ china TIC ak IS

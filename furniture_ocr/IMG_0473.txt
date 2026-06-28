@@ -1,0 +1,28 @@
+| Se x %
+4 a Seller: Hello, ABC company. What can I do for you?
+
+. 4 你 好 ,ABC 公司 。 有 什么 可 以 帮 到 你 的 ?
+
+i : Customer: This is David from Australia. I know your company on the net.
+
+| a : I’m interested in your TV table. Can you give me the quotation.
+
+| 2 我 是 来 自 澳大利亚 的 大 卫 。 我 从 网 上 知道 你 的 公司 。
+
+， 我 对 你 们 的 电视 柜 很 感 兴趣 。 你 能 给 我 报价 吗 ?
+
+‘ 4 Seller: Ok, can you tell me your fax No.? I’ll fax the information to you later.
+
+本 好 的 您 能 告诉 我 你 的 传真 号 吗 ? 我 等 一 会 儿 传真 给 你 。 —
+| q q Customer: Yes, my fax No. is 28863920. : : —
+| = 好 的 。 我 的 传真 号 是 28863920. So
+q | q i Seller: Thank you for your calling. I hope we will be business partners in the future. ——
+—- 谢谢 您 的 来 电 。 我 希望 将 来 我 们 能 成 为 生意 伙伴 。
+= q = Customer: I hope so.
+
+— = 我 也 这 么 希望。
+- aa
+eo 和 ie ‘4 2 - | ae = |
+> eniae |
+| 4 2% . :
+7 a1

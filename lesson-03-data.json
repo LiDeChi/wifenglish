@@ -1,0 +1,286 @@
+{
+  "lesson_id": "negotiating-order-03",
+  "title_en": "Negotiating a Big Order",
+  "title_zh": "大宗订单谈判",
+  "description": "A business customer wants to order office furniture. They discuss quantity, quality, and price.",
+  "visual_style": "See style-guide.md for full consistency rules",
+  "scenes": [
+    {
+      "id": 1,
+      "image": "visuals/lesson03/scene-01.jpg",
+      "title_en": "A New Customer",
+      "title_zh": "新客户",
+      "description": "A business customer arrives to buy office furniture.",
+      "lines": [
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Good morning. Welcome to our shop. What can I do for you?",
+          "zh": "早上好，欢迎光临。有什么可以帮到您的？",
+          "vocab": [
+            "Good morning"
+          ]
+        },
+        {
+          "speaker": "Customer",
+          "role": "customer",
+          "en": "I need to buy some office furniture. Can you show me around?",
+          "zh": "我需要买一些办公家具。能带我看看吗？",
+          "vocab": [
+            "office furniture",
+            "show me around"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Sure. These are our office tables and computer desks.",
+          "zh": "当然。这些是我们的办公台和电脑桌。",
+          "vocab": [
+            "office tables",
+            "computer desks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "image": "visuals/lesson03/scene-02.jpg",
+      "title_en": "Choosing Products",
+      "title_zh": "选择产品",
+      "description": "The customer picks computer desks and chairs.",
+      "lines": [
+        {
+          "speaker": "Customer",
+          "role": "customer",
+          "en": "I want to buy this computer desk. What is it made of?",
+          "zh": "我想买这张电脑桌。它是什么材质的？",
+          "vocab": [
+            "computer desk"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "This one is made of MDF, but we have the same style in plywood.",
+          "zh": "这款是中纤板的，但我们有同款胶合板的。",
+          "vocab": [
+            "MDF",
+            "plywood"
+          ]
+        },
+        {
+          "speaker": "Customer",
+          "role": "customer",
+          "en": "I also need boss chairs. What colors do you have?",
+          "zh": "我还需要老板椅。有什么颜色？",
+          "vocab": [
+            "boss chairs"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "We have blue, black and red. You can choose leather, fabric or PU leather.",
+          "zh": "有蓝色、黑色和红色。您可以选择皮革、布艺或PU皮。",
+          "vocab": [
+            "PU leather"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "image": "visuals/lesson03/scene-03.jpg",
+      "title_en": "Talking About Quantity",
+      "title_zh": "谈论数量",
+      "description": "They confirm how many pieces the customer wants.",
+      "lines": [
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "How many desks and chairs do you want to buy?",
+          "zh": "您想买多少张桌子和椅子？",
+          "vocab": [
+            "How many"
+          ]
+        },
+        {
+          "speaker": "Customer",
+          "role": "customer",
+          "en": "I want 100 computer desks and 100 boss chairs.",
+          "zh": "我要100张电脑桌和100张老板椅。",
+          "vocab": [
+            "computer desks"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "That's a large order. We can offer a better price.",
+          "zh": "这是大宗订单。我们可以给更优惠的价格。",
+          "vocab": [
+            "large order",
+            "better price"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "image": "visuals/lesson03/scene-04.jpg",
+      "title_en": "Quality Guarantee",
+      "title_zh": "质量保证",
+      "description": "The customer asks about quality and durability.",
+      "lines": [
+        {
+          "speaker": "Customer",
+          "role": "customer",
+          "en": "How long can this chair last?",
+          "zh": "这把椅子能用多久？",
+          "vocab": [
+            "last"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "It can last for at least ten years if you use it in the right way.",
+          "zh": "如果使用得当，至少可以用十年。",
+          "vocab": [
+            "at least",
+            "ten years"
+          ]
+        },
+        {
+          "speaker": "Customer",
+          "role": "customer",
+          "en": "Your quality is the best among the suppliers I have visited.",
+          "zh": "在我参观过的供应商中，你们的质量是最好的。",
+          "vocab": [
+            "quality",
+            "suppliers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "image": "visuals/lesson03/scene-05.jpg",
+      "title_en": "Price Negotiation",
+      "title_zh": "价格谈判",
+      "description": "They negotiate the price for the large order.",
+      "lines": [
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "The desk is 700 RMB and the chair is 500 RMB.",
+          "zh": "桌子700元，椅子500元。",
+          "vocab": [
+            "RMB"
+          ]
+        },
+        {
+          "speaker": "Customer",
+          "role": "customer",
+          "en": "This price is too high for such a big order. How about 600 for the desk and 400 for the chair?",
+          "zh": "这么大的订单，这个价格太高了。桌子600、椅子400怎么样？",
+          "vocab": [
+            "big order"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Sorry, that's lower than our wholesale price. 650 and 450 is the best we can do.",
+          "zh": "抱歉，这低于我们的批发价。650和450是我们能给的最低价。",
+          "vocab": [
+            "wholesale price"
+          ]
+        },
+        {
+          "speaker": "Customer",
+          "role": "customer",
+          "en": "OK, then we have a deal.",
+          "zh": "好的，成交。",
+          "vocab": [
+            "deal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "image": "visuals/lesson03/scene-06.jpg",
+      "title_en": "Next Steps",
+      "title_zh": "下一步",
+      "description": "They agree to visit the factory before finalizing.",
+      "lines": [
+        {
+          "speaker": "Customer",
+          "role": "customer",
+          "en": "Can I visit your factory before I place the order?",
+          "zh": "下单前我可以参观你们的工厂吗？",
+          "vocab": [
+            "place the order"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Of course. We can pick you up anytime.",
+          "zh": "当然可以。我们随时可以接送。",
+          "vocab": [
+            "pick you up",
+            "anytime"
+          ]
+        },
+        {
+          "speaker": "Customer",
+          "role": "customer",
+          "en": "How about tomorrow morning?",
+          "zh": "明天上午怎么样？",
+          "vocab": [
+            "How about"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Tomorrow morning is fine. I'll show you around our workshop.",
+          "zh": "明天上午可以。我带您参观我们的车间。",
+          "vocab": [
+            "show you around",
+            "workshop"
+          ]
+        }
+      ]
+    }
+  ],
+  "key_vocab_summary": [
+    "office furniture",
+    "show me around",
+    "office tables",
+    "computer desks",
+    "MDF",
+    "plywood",
+    "boss chairs",
+    "PU leather",
+    "How many",
+    "large order",
+    "better price",
+    "last",
+    "at least",
+    "ten years",
+    "quality",
+    "suppliers",
+    "big order",
+    "wholesale price",
+    "deal",
+    "place the order",
+    "pick you up",
+    "anytime",
+    "show you around",
+    "workshop"
+  ]
+}

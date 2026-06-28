@@ -1,0 +1,287 @@
+{
+  "lesson_id": "choosing-sofa-02",
+  "title_en": "Choosing the Perfect Sofa",
+  "title_zh": "挑选理想沙发",
+  "description": "Mr. Zhang returns to the showroom and learns about materials, colors, and sizes before choosing a sofa.",
+  "visual_style": "See style-guide.md for full consistency rules",
+  "scenes": [
+    {
+      "id": 1,
+      "image": "visuals/lesson02/scene-01.jpg",
+      "title_en": "Welcome Back",
+      "title_zh": "欢迎回头客",
+      "description": "Mr. Zhang comes back to look at sofas.",
+      "lines": [
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Welcome back, Mr. Zhang. What would you like to see today?",
+          "zh": "欢迎再次光临，张先生。今天想看些什么？",
+          "vocab": [
+            "Welcome back"
+          ]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "I'd like to see some sofas. What materials do you have?",
+          "zh": "我想看看沙发。你们有什么材质的？",
+          "vocab": [
+            "materials"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "We have fabric, leather, genuine leather and solid wood frames.",
+          "zh": "我们有布艺、皮革、真皮和实木框架的。",
+          "vocab": [
+            "fabric",
+            "genuine leather",
+            "solid wood"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "image": "visuals/lesson02/scene-02.jpg",
+      "title_en": "Choosing the Material",
+      "title_zh": "选择材质",
+      "description": "Li Wei explains the differences between materials.",
+      "lines": [
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "What is this sofa made of?",
+          "zh": "这个沙发是什么材质的？",
+          "vocab": [
+            "made of"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "It's made of real leather, so it's very durable.",
+          "zh": "这是用真皮做的，所以非常耐用。",
+          "vocab": [
+            "real leather",
+            "durable"
+          ]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Do you have fabric sofas too?",
+          "zh": "你们也有布艺沙发吗？",
+          "vocab": [
+            "fabric sofas"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Yes. This fabric sofa is soft and easy to clean.",
+          "zh": "有的。这款布艺沙发柔软且容易清洁。",
+          "vocab": [
+            "soft",
+            "easy to clean"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "image": "visuals/lesson02/scene-03.jpg",
+      "title_en": "Picking a Color",
+      "title_zh": "挑选颜色",
+      "description": "They look at color swatches for the sofa.",
+      "lines": [
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "How many colors do you have for this design?",
+          "zh": "这款设计有多少种颜色？",
+          "vocab": [
+            "design"
+          ]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "We have red, white, black, brown and beige.",
+          "zh": "我们有红色、白色、黑色、棕色和米色。",
+          "vocab": [
+            "beige"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "I like the brown one. Can you customize the color?",
+          "zh": "我喜欢棕色的。可以定制颜色吗？",
+          "vocab": [
+            "customize"
+          ]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Of course. We can make it in light brown if you prefer.",
+          "zh": "当然可以。如果您喜欢，我们可以做成浅棕色。",
+          "vocab": [
+            "light brown"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "image": "visuals/lesson02/scene-04.jpg",
+      "title_en": "Checking the Size",
+      "title_zh": "确认尺寸",
+      "description": "Mr. Zhang asks about the sofa dimensions.",
+      "lines": [
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Can you tell me the size of this sofa?",
+          "zh": "能告诉我这个沙发的尺寸吗？",
+          "vocab": [
+            "size"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "This three-seater is 2.2 meters long, 95 centimeters deep and 85 centimeters high.",
+          "zh": "这款三人沙发长2.2米，深95厘米，高85厘米。",
+          "vocab": [
+            "three-seater",
+            "meters",
+            "centimeters"
+          ]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Do you have a bigger size?",
+          "zh": "你们有更大的尺寸吗？",
+          "vocab": [
+            "bigger size"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Yes, we also have a king-size sofa that is 2.4 meters long.",
+          "zh": "有的，我们还有一款特大号沙发，长2.4米。",
+          "vocab": [
+            "king-size"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "image": "visuals/lesson02/scene-05.jpg",
+      "title_en": "Trying the Sofa",
+      "title_zh": "试坐沙发",
+      "description": "Mr. Zhang sits on the sofa to test comfort.",
+      "lines": [
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Would you like to sit down and try it?",
+          "zh": "您要坐下来试试吗？",
+          "vocab": [
+            "try it"
+          ]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "It's quite comfortable. The cushions are firm but soft.",
+          "zh": "相当舒服。靠垫结实又柔软。",
+          "vocab": [
+            "comfortable",
+            "cushions",
+            "firm"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "This model sells very well because of its design.",
+          "zh": "这款因为设计好，卖得很不错。",
+          "vocab": [
+            "sells very well"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "image": "visuals/lesson02/scene-06.jpg",
+      "title_en": "A Preliminary Decision",
+      "title_zh": "初步决定",
+      "description": "Mr. Zhang decides on the material and color.",
+      "lines": [
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "I like the genuine leather sofa in light brown, 2.4 meters.",
+          "zh": "我喜欢浅棕色2.4米的真皮沙发。",
+          "vocab": [
+            "genuine leather"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Great choice. Let me write down the details for you.",
+          "zh": "好选择。让我把细节记下来。",
+          "vocab": [
+            "write down",
+            "details"
+          ]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Thank you. I'll think about it and come back tomorrow.",
+          "zh": "谢谢。我考虑一下，明天再来。",
+          "vocab": [
+            "think about"
+          ]
+        }
+      ]
+    }
+  ],
+  "key_vocab_summary": [
+    "materials",
+    "fabric",
+    "genuine leather",
+    "solid wood",
+    "made of",
+    "real leather",
+    "durable",
+    "soft",
+    "easy to clean",
+    "design",
+    "customize",
+    "light brown",
+    "size",
+    "three-seater",
+    "meters",
+    "centimeters",
+    "king-size",
+    "comfortable",
+    "cushions",
+    "firm",
+    "sells very well",
+    "write down",
+    "details",
+    "think about"
+  ]
+}

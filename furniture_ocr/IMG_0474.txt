@@ -1,0 +1,27 @@
+| ke] wav |
+1 Customer: | like your products. Can I visit your factory? :
+| Seller: Yes, of course. I can show you around.
+4 Customer: When can I come? :
+i} Seller: How about tomorrow? |
+| Customer: OK, tomorrow is fine. |
+由 Te
+i 顾客 : ”我 喜欢 你 的 产品 ， 我 可 以 参观 你 的 工厂 吗 ?
+| 售货员 ， 好 的 ， 当 然 可 以 ， 我 可 以 带 你 周围 看 一 下 。
+由 Bie: 我 什么 时 候 可 以 来 ?
+
+i 售货员 :明天 怎么 样 ?
+
+| 顾客 :好 的 ， 明 天 可 以 。
+Mi
+
+|
+
+HEH |} ~
+| ee 网 由 SS ee BZ |
+, ble 装配
+
+ ..42
+
+oe Ok: TOD Rae
+
+博览 市 一 一
