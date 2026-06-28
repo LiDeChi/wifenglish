@@ -1,0 +1,253 @@
+{
+  "lesson_id": "warranty-care-08",
+  "title_en": "Warranty & Care",
+  "title_zh": "保修与保养",
+  "description": "Mr. Zhang calls Li Wei about a coffee stain and learns about warranty coverage and care tips.",
+  "visual_style": "See style-guide.md for full consistency rules",
+  "scenes": [
+    {
+      "id": 1,
+      "image": "visuals/lesson08/scene-01.jpg",
+      "title_en": "A Phone Call to the Showroom",
+      "title_zh": "致电展厅",
+      "description": "Mr. Zhang calls Li Wei about a stain on the sofa.",
+      "lines": [
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Hi Li Wei, I spilled coffee on the sofa. What should I do?",
+          "zh": "嗨李伟，我把咖啡洒在沙发上了。我该怎么办？",
+          "vocab": [
+            "spilled"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Don't worry. Blot it gently with a clean cloth first.",
+          "zh": "别担心。先用干净的布轻轻吸干。",
+          "vocab": [
+            "blot",
+            "gently",
+            "cloth"
+          ]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Okay, I did that. Will it leave a stain?",
+          "zh": "好的，我做了。会留下污渍吗？",
+          "vocab": [
+            "stain"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "image": "visuals/lesson08/scene-02.jpg",
+      "title_en": "Cleaning Advice",
+      "title_zh": "清洁建议",
+      "description": "Li Wei gives Mr. Zhang simple cleaning instructions.",
+      "lines": [
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Use warm water and a little mild soap on the spot.",
+          "zh": "用温水和少量温和的肥皂处理污渍处。",
+          "vocab": [
+            "mild soap",
+            "spot"
+          ]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Should I rub it hard?",
+          "zh": "我要用力擦吗？",
+          "vocab": [
+            "rub"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "No, just dab it softly. Let it air dry.",
+          "zh": "不用，轻轻拍打就好。让它自然风干。",
+          "vocab": [
+            "dab",
+            "air dry"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "image": "visuals/lesson08/scene-03.jpg",
+      "title_en": "Warranty Coverage",
+      "title_zh": "保修范围",
+      "description": "Mr. Zhang asks whether the stain is covered by warranty.",
+      "lines": [
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Is this kind of damage covered by the warranty?",
+          "zh": "这种损坏在保修范围内吗？",
+          "vocab": [
+            "covered",
+            "warranty"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Stains from daily use are not covered, but the fabric is stain-resistant.",
+          "zh": "日常使用的污渍不在保修范围内，但面料是防污的。",
+          "vocab": [
+            "daily use",
+            "stain-resistant"
+          ]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "I see. So I should clean it myself.",
+          "zh": "明白了。所以我得自己清理。",
+          "vocab": [
+            "clean"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "image": "visuals/lesson08/scene-04.jpg",
+      "title_en": "Professional Cleaning Service",
+      "title_zh": "专业清洁服务",
+      "description": "Li Wei introduces the showroom's cleaning service.",
+      "lines": [
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "We also offer a professional cleaning service twice a year.",
+          "zh": "我们还提供每年两次的专业清洁服务。",
+          "vocab": [
+            "professional",
+            "cleaning service"
+          ]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "How much does it cost?",
+          "zh": "多少钱一次？",
+          "vocab": [
+            "cost"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "It's free for the first year. After that, 300 RMB per visit.",
+          "zh": "第一年免费。之后每次300元。",
+          "vocab": [
+            "per visit"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "image": "visuals/lesson08/scene-05.jpg",
+      "title_en": "Scheduling a Cleaning",
+      "title_zh": "预约清洁",
+      "description": "Mr. Zhang books the free cleaning service.",
+      "lines": [
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "I'd like to book the free cleaning next month.",
+          "zh": "我想预约下个月的免费清洁。",
+          "vocab": [
+            "book"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Perfect. I'll arrange it for the first Saturday of next month.",
+          "zh": "好的。我安排在下个月第一个周六。",
+          "vocab": [
+            "arrange"
+          ]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "That works for me. Thank you.",
+          "zh": "那对我合适。谢谢。",
+          "vocab": [
+            "works for me"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "image": "visuals/lesson08/scene-06.jpg",
+      "title_en": "Care Tips",
+      "title_zh": "保养建议",
+      "description": "Li Wei shares daily care advice for the sofa.",
+      "lines": [
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Avoid direct sunlight and vacuum the sofa weekly.",
+          "zh": "避免阳光直射，每周用吸尘器清理沙发。",
+          "vocab": [
+            "direct sunlight",
+            "vacuum",
+            "weekly"
+          ]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Good tips. I'll take good care of it.",
+          "zh": "好建议。我会好好保养的。",
+          "vocab": [
+            "take care of"
+          ]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "If you have any questions, just call us anytime.",
+          "zh": "如果有任何问题，随时打电话给我们。",
+          "vocab": [
+            "anytime"
+          ]
+        }
+      ]
+    }
+  ],
+  "key_vocab_summary": [
+    "spilled",
+    "blot",
+    "gently",
+    "stain",
+    "mild soap",
+    "dab",
+    "air dry",
+    "warranty",
+    "daily use",
+    "stain-resistant",
+    "professional",
+    "cleaning service",
+    "book",
+    "arrange",
+    "direct sunlight",
+    "vacuum",
+    "take care of"
+  ]
+}

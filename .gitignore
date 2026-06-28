@@ -20,5 +20,10 @@ npm-debug.log*
 __pycache__/
 *.py[cod]
 
-# Large raw source not needed for deploy (keep in repo if desired)
-# Keep all assets since this is the source of truth for the app
+# Large raw source images (HEIC). Extracted lesson content is kept and pushed.
+家具/
+*.HEIC
+
+# Cloudflare Wrangler local cache
+.wrangler/
+web/.wrangler/
