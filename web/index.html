@@ -10,6 +10,24 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         />
         <style>
+            :root {
+                /* Claude-inspired light (day) theme */
+                --bg: #f8fafc;
+                --bg-card: #ffffff;
+                --text: #0f172a;
+                --text-muted: #64748b;
+                --border: #e2e8f0;
+                --accent: #f59e0b;
+            }
+            .dark {
+                /* Claude-inspired dark (night) theme */
+                --bg: #0f172a;
+                --bg-card: #1e2937;
+                --text: #f1f5f9;
+                --text-muted: #94a3b8;
+                --border: #334155;
+                --accent: #f59e0b;
+            }
             body {
                 font-family:
                     system-ui,
@@ -18,6 +36,12 @@
                     "Segoe UI",
                     Roboto,
                     sans-serif;
+                background-color: var(--bg);
+                color: var(--text);
+            }
+            .card {
+                background-color: var(--bg-card);
+                border-color: var(--border);
             }
             .subtitle-panel {
                 scrollbar-width: thin;
@@ -61,9 +85,49 @@
             .auto-playing {
                 animation: pulse 2s infinite;
             }
+            /* Theme overrides for Claude-like look */
+            .light .bg-zinc-900,
+            .light .bg-zinc-950 {
+                background-color: var(--bg-card) !important;
+            }
+            .light .text-zinc-100,
+            .light .text-zinc-200 {
+                color: var(--text) !important;
+            }
+            .light .text-zinc-400,
+            .light .text-zinc-500 {
+                color: var(--text-muted) !important;
+            }
+            .light .border-white\/10 {
+                border-color: var(--border) !important;
+            }
+            .dark .bg-zinc-900,
+            .dark .bg-zinc-950 {
+                background-color: var(--bg-card) !important;
+            }
+            .light .bg-black {
+                background-color: #f1f5f9 !important;
+            }
+            .dark .bg-black {
+                background-color: #0f172a !important;
+            }
+            /* Better split on mobile landscape */
+            @media (max-width: 900px) and (orientation: landscape) {
+                #player-split {
+                    flex-direction: row !important;
+                }
+                #player-split > div:first-child {
+                    width: 55% !important;
+                }
+                #player-split > div:last-child {
+                    width: 45% !important;
+                    border-top: 0 !important;
+                    border-left: 1px solid rgb(255 255 255 / 0.1);
+                }
+            }
         </style>
     </head>
-    <body class="bg-zinc-950 text-zinc-100">
+    <body class="light">
         <div class="max-w-6xl mx-auto p-3 md:p-5">
             <!-- Global Top Bar -->
             <div class="flex items-center justify-between mb-3 px-1">
@@ -79,8 +143,16 @@
                         </h1>
                     </div>
                 </div>
-                <div id="global-nav" class="flex gap-2 text-sm">
+                <div id="global-nav" class="flex gap-2 text-sm items-center">
                     <!-- populated by JS -->
+                    <button
+                        id="theme-toggle"
+                        onclick="toggleTheme()"
+                        class="px-2 py-1 text-sm rounded hover:bg-black/5 dark:hover:bg-white/10"
+                        title="切换白天/黑夜主题"
+                    >
+                        <i class="fa-solid fa-sun"></i>
+                    </button>
                 </div>
             </div>
 
@@ -181,25 +253,47 @@
                 >
                     <div
                         id="player-split"
-                        class="flex flex-col md:flex-row min-h-[520px] md:min-h-[560px]"
+                        class="flex flex-col md:flex-row min-h-[520px] md:min-h-[560px] landscape:flex-row"
                     >
                         <!-- IMAGE PANE (left on wide, top on mobile) -->
                         <div
                             class="md:w-[58%] lg:w-[62%] bg-black flex items-center justify-center p-2 relative"
                         >
-                            <img
-                                id="scene-image"
-                                class="max-h-[420px] md:max-h-[520px] w-full object-contain rounded-2xl"
-                                alt="Scene visual"
-                            />
+                            <div class="relative w-full">
+                                <img
+                                    id="scene-image"
+                                    class="w-full h-[38vh] md:h-[42vh] object-contain rounded-2xl"
+                                    alt="Scene visual"
+                                />
+                                <!-- Subtitles visible inside the image area (bottom bar on picture) -->
+                                <div
+                                    id="image-subtitle-bar"
+                                    class="absolute bottom-1 left-1 right-1 bg-zinc-950/95 text-white rounded px-2 py-1 text-center hidden"
+                                >
+                                    <div
+                                        id="img-speaker"
+                                        class="text-[9px] text-amber-400 font-semibold tracking-wide"
+                                    ></div>
+                                    <div
+                                        id="img-en"
+                                        class="text-xs sm:text-sm font-medium leading-snug"
+                                    ></div>
+                                    <div
+                                        id="img-zh"
+                                        class="text-[10px] text-zinc-300 leading-snug"
+                                    ></div>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- TEXT PANE (right on wide, bottom on mobile) -->
                         <div
                             class="md:w-[42%] lg:w-[38%] flex flex-col border-t md:border-t-0 md:border-l border-white/10 bg-zinc-950"
                         >
-                            <!-- Current speech bubble / large display -->
-                            <div class="p-4 border-b border-white/10">
+                            <!-- Current line large display (speech bubble style) -->
+                            <div
+                                class="p-4 border-b border-white/10 bg-zinc-900"
+                            >
                                 <div
                                     id="current-speaker"
                                     class="text-amber-400 text-xs font-semibold mb-0.5"
@@ -214,7 +308,7 @@
                                 ></div>
                             </div>
 
-                            <!-- Scrollable full subtitles -->
+                            <!-- Scrollable full bilingual subtitles -->
                             <div
                                 class="flex-1 overflow-y-auto subtitle-panel px-2 py-2 text-[14.5px] leading-snug bg-zinc-900"
                                 id="subtitle-list"
@@ -248,6 +342,41 @@
                         >
                             <i class="fa-solid fa-undo"></i>
                         </button>
+
+                        <!-- Playback speed control (global, default slower) -->
+                        <div
+                            class="flex items-center gap-1 ml-2 text-xs bg-zinc-800 rounded-xl p-0.5"
+                        >
+                            <span class="px-1 text-zinc-400">速度</span>
+                            <button
+                                data-speed="0.6"
+                                onclick="setGlobalSpeed(0.6)"
+                                class="speed-btn px-2 py-0.5 rounded-lg hover:bg-zinc-700"
+                            >
+                                0.6x
+                            </button>
+                            <button
+                                data-speed="0.75"
+                                onclick="setGlobalSpeed(0.75)"
+                                class="speed-btn px-2 py-0.5 rounded-lg bg-amber-500 text-black font-medium"
+                            >
+                                0.75x
+                            </button>
+                            <button
+                                data-speed="1"
+                                onclick="setGlobalSpeed(1)"
+                                class="speed-btn px-2 py-0.5 rounded-lg hover:bg-zinc-700"
+                            >
+                                1x
+                            </button>
+                            <button
+                                data-speed="1.25"
+                                onclick="setGlobalSpeed(1.25)"
+                                class="speed-btn px-2 py-0.5 rounded-lg hover:bg-zinc-700"
+                            >
+                                1.25x
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -299,6 +428,21 @@
             let isPlaying = false;
             let currentAudio = null;
             let allLines = []; // flattened for easy navigation
+            let globalSpeed = 0.75; // default slower for language learning
+
+            function setGlobalSpeed(speed) {
+                globalSpeed = speed;
+                if (currentAudio) {
+                    currentAudio.playbackRate = globalSpeed;
+                }
+                // update active button
+                document.querySelectorAll("[data-speed]").forEach((btn) => {
+                    const active = parseFloat(btn.dataset.speed) === speed;
+                    btn.classList.toggle("bg-amber-500", active);
+                    btn.classList.toggle("text-black", active);
+                    btn.classList.toggle("font-medium", active);
+                });
+            }
 
             function showHome() {
                 document.getElementById("home-view").classList.remove("hidden");
@@ -311,11 +455,22 @@
                 document
                     .getElementById("player-view")
                     .classList.remove("hidden");
-                if (!lessonData) {
+                // Ensure image is immediately visible - scroll to top
+                setTimeout(() => {
+                    window.scrollTo({ top: 0, behavior: "instant" });
+                }, 10);
+
+                if (!lessonData || !allLines.length) {
                     loadLesson().then(() => {
+                        renderSubtitleList();
                         showScene(0, 0);
                     });
                 } else {
+                    // ensure full history list is rendered
+                    const container = document.getElementById("subtitle-list");
+                    if (container && container.children.length < 5) {
+                        renderSubtitleList();
+                    }
                     showScene(0, 0);
                 }
             }
@@ -366,13 +521,23 @@
                         );
 
                         const en = highlightVocab(line.en, line.vocab || []);
-                        const zh = highlightVocab(line.zh, line.vocab || []);
+                        const zh = highlightZhVocab(line.zh, line.vocab || []);
+                        const isSales =
+                            line.role === "sales" ||
+                            line.speaker.includes("Li") ||
+                            line.speaker.includes("李");
+                        const avatar = isSales
+                            ? `<div class="w-6 h-6 rounded-full bg-indigo-500 text-white text-[10px] flex items-center justify-center flex-shrink-0 font-bold">李</div>`
+                            : `<div class="w-6 h-6 rounded-full bg-teal-500 text-white text-[10px] flex items-center justify-center flex-shrink-0 font-bold">张</div>`;
 
                         div.innerHTML = `
-            <div class="w-14 shrink-0 text-xs pt-0.5 font-medium text-zinc-400">${line.speaker}</div>
-            <div class="flex-1 min-w-0">
-              <div class="text-white">${en}</div>
-              <div class="text-zinc-400 text-sm">${zh}</div>
+            <div class="flex items-start gap-2">
+              ${avatar}
+              <div class="flex-1 min-w-0">
+                <div class="text-xs text-zinc-400">${line.speaker}</div>
+                <div class="text-white">${en}</div>
+                <div class="text-zinc-400 text-sm">${zh}</div>
+              </div>
             </div>
           `;
 
@@ -400,6 +565,50 @@
                 return result;
             }
 
+            // Map English keys to their Chinese counterparts for highlighting in zh subtitles
+            const zhKeyMap = {
+                showroom: "展厅",
+                welcome: "欢迎",
+                "sofa set": "一套沙发",
+                apartment: "公寓",
+                "take your time": "慢慢看",
+                catalogue: "目录",
+                "three-seater": "三人沙发",
+                fabric: "面料",
+                "easy to clean": "好打理",
+                "performance fabric": "功能面料",
+                "stain-resistant": "防污",
+                dimensions: "尺寸",
+                centimeters: "厘米",
+                wide: "宽",
+                deep: "深",
+                fit: "适合",
+                "living room": "客厅",
+                cushions: "靠垫",
+                comfortable: "舒服",
+                matching: "配套",
+                "full set": "全套",
+                delivery: "送货",
+                installation: "安装",
+            };
+
+            function highlightZhVocab(text, vocabList) {
+                if (!vocabList || vocabList.length === 0) return text;
+                let result = text;
+                vocabList.forEach((v) => {
+                    const zhTerm = zhKeyMap[v.toLowerCase()];
+                    if (zhTerm) {
+                        // replace the Chinese term (exact match, global)
+                        const re = new RegExp(zhTerm, "g");
+                        result = result.replace(
+                            re,
+                            `<span class="vocab">${zhTerm}</span>`,
+                        );
+                    }
+                });
+                return result;
+            }
+
             function showScene(sceneIdx, lineIdx) {
                 const scene = lessonData.scenes[sceneIdx];
                 if (!scene) return;
@@ -421,7 +630,29 @@
 
                     speakerEl.textContent = line.speaker;
                     enEl.innerHTML = highlightVocab(line.en, line.vocab || []);
-                    zhEl.innerHTML = highlightVocab(line.zh, line.vocab || []);
+                    zhEl.innerHTML = highlightZhVocab(
+                        line.zh,
+                        line.vocab || [],
+                    );
+
+                    // Subtitles also appear inside the image (bottom bar)
+                    const bar = document.getElementById("image-subtitle-bar");
+                    const imgSp = document.getElementById("img-speaker");
+                    const imgEn = document.getElementById("img-en");
+                    const imgZh = document.getElementById("img-zh");
+                    if (bar && imgSp && imgEn && imgZh) {
+                        imgSp.textContent = line.speaker;
+                        imgEn.innerHTML = highlightVocab(
+                            line.en,
+                            line.vocab || [],
+                        );
+                        imgZh.innerHTML = highlightZhVocab(
+                            line.zh,
+                            line.vocab || [],
+                        );
+                        bar.classList.remove("hidden");
+                        bar.classList.add("block");
+                    }
                 }
 
                 // Highlight current line in list
@@ -442,9 +673,10 @@
 
                 if (target) {
                     target.classList.add("current");
+                    // Scroll the list to make current visible and centered
                     target.scrollIntoView({
                         behavior: "smooth",
-                        block: "nearest",
+                        block: "center",
                     });
                 }
             }
@@ -459,6 +691,7 @@
                 const fname = `audio/lesson01/scene${String(scene.id).padStart(2, "0")}_line${currentLineIdx.toString().padStart(2, "0")}.mp3`;
 
                 currentAudio = new Audio(fname);
+                currentAudio.playbackRate = globalSpeed;
                 currentAudio.onended = () => {
                     // Auto advance
                     if (!isPlaying) return;
@@ -610,6 +843,21 @@
                         });
                     });
                 } catch (e) {}
+
+                // Initialize speed UI with default (slower)
+                setTimeout(() => {
+                    setGlobalSpeed(globalSpeed);
+                    // ensure the 0.75 button is active
+                    document.querySelectorAll("[data-speed]").forEach((btn) => {
+                        const isDefault =
+                            parseFloat(btn.dataset.speed) === 0.75;
+                        btn.classList.toggle("bg-amber-500", isDefault);
+                        btn.classList.toggle("text-black", isDefault);
+                        btn.classList.toggle("font-medium", isDefault);
+                    });
+                }, 50);
+
+                initTheme();
             }
 
             window.enterPlayer = enterPlayer;
@@ -619,6 +867,42 @@
                 stop();
                 showScene(0, 0);
             };
+
+            // Theme management - Claude official style light/dark
+            function applyTheme(theme) {
+                if (theme === "dark") {
+                    document.body.classList.add("dark");
+                    document.body.classList.remove("light");
+                    const btn = document.getElementById("theme-toggle");
+                    if (btn) btn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+                } else {
+                    document.body.classList.add("light");
+                    document.body.classList.remove("dark");
+                    const btn = document.getElementById("theme-toggle");
+                    if (btn) btn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+                }
+                localStorage.setItem("theme", theme);
+            }
+
+            function toggleTheme() {
+                const isDark = document.body.classList.contains("dark");
+                applyTheme(isDark ? "light" : "dark");
+            }
+
+            // Init theme - default to light (day) , use saved or system
+            function initTheme() {
+                const saved = localStorage.getItem("theme");
+                if (saved) {
+                    applyTheme(saved);
+                } else if (
+                    window.matchMedia &&
+                    window.matchMedia("(prefers-color-scheme: dark)").matches
+                ) {
+                    applyTheme("dark");
+                } else {
+                    applyTheme("light"); // daytime / white theme default
+                }
+            }
 
             init();
         </script>
