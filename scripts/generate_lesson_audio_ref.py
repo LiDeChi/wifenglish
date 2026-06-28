@@ -23,10 +23,14 @@ from pathlib import Path
 
 import requests
 
+from env_utils import load_local_env
+
 API_BASE = "https://api.boson.ai/v1"
 SPEECH_URL = f"{API_BASE}/audio/speech"
 VOICES_URL = f"{API_BASE}/audio/voices"
 MODEL = "higgs-tts-3"
+
+load_local_env()
 
 # Speaker reference configuration
 REFS = {

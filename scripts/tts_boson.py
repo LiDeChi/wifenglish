@@ -12,10 +12,13 @@ import requests
 import argparse
 from pathlib import Path
 
+from env_utils import load_local_env
+
 API_URL = "https://api.boson.ai/v1/audio/speech"
 MODEL = "higgs-audio-v3-tts"  # or higgs-tts-3 per docs
 
 def synthesize(text: str, out_path: str, voice: str = "default", response_format: str = "mp3"):
+    load_local_env()
     key = os.environ.get("BOSON_API_KEY")
     if not key:
         raise RuntimeError("BOSON_API_KEY is not set")

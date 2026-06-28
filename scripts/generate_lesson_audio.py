@@ -11,6 +11,10 @@ from pathlib import Path
 
 import requests
 
+from env_utils import load_local_env
+
+load_local_env()
+
 KEY = os.environ.get("BOSON_API_KEY")
 URL = "https://api.boson.ai/v1/audio/speech"
 MODEL = "higgs-audio-v3-tts"
