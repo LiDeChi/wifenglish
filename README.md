@@ -52,30 +52,32 @@ This site is deployed to **Cloudflare Pages** from the `web/` folder (static sit
 
 ### Automatic deployment (push to GitHub = auto update)
 
-**Recommended (easiest):**
+**Important note:**  
+This project was created with "Direct Upload" (via `wrangler pages deploy`). Cloudflare does not allow switching a Direct Upload project to Git source via the normal "Git integration" button.
 
-1. Go to [Cloudflare Dashboard → Pages](https://dash.cloudflare.com)
-2. Select the `wifenglish` project
-3. Go to **Settings → Build & deployments → Git integration**
-4. Connect your GitHub account and select the `wifenglish` repo
-5. Configure:
-   - Production branch: `main`
-   - Build command: *(leave empty)*
-   - Build output directory: `web`
-6. Save
+**Use GitHub Actions (this is the way to get auto-deploy on push):**
 
-After this, **every `git push` to `main`** will automatically trigger a new deployment.
+1. Push your code to GitHub (from your local machine):
+   ```bash
+   git push origin main
+   ```
 
-**Alternative: GitHub Actions**
+2. In the GitHub repo, go to:
+   **Settings → Secrets and variables → Actions → New repository secret**
 
-We have added `.github/workflows/deploy.yml`.
+   Add two secrets:
 
-You need to add these two **Repository Secrets** (Settings → Secrets and variables → Actions):
+   - Name: `CLOUDFLARE_API_TOKEN`  
+     Value: Your Cloudflare API token (must have at least **Pages:Edit** permission).  
+     (You can create one at https://dash.cloudflare.com/profile/api-tokens)
 
-- `CLOUDFLARE_API_TOKEN` — your Cloudflare API token (with Pages:Edit permission)
-- `CLOUDFLARE_ACCOUNT_ID` — `794b63fe0f5c7cccb9968718bb16ed39`
+   - Name: `CLOUDFLARE_ACCOUNT_ID`  
+     Value: `794b63fe0f5c7cccb9968718bb16ed39`
 
-Then any push to `main` will deploy via the workflow.
+3. After adding the secrets, push again (or use the "Run workflow" button on the Actions tab).  
+   The workflow at `.github/workflows/deploy.yml` will run and deploy the `web/` folder.
+
+Now, every time you `git push` to `main`, the site will automatically update on Cloudflare Pages.
 
 ### Manual deploy (from local)
 
