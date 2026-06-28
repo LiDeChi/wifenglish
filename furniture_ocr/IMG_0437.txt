@@ -1,0 +1,3 @@
+ERR (code 1): Error in fopenReadStream: failed to open locally with tail pre_ocr.png for filename /tmp/pre_ocr.png
+Leptonica Error in findFileFormat: image file not found: /tmp/pre_ocr.png
+Error in fopenReadStream:

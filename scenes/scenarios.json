@@ -1,0 +1,186 @@
+{
+  "title": "WifEnglish - Furniture Shop Dialogues",
+  "subtitle": "Progressive English Learning Scenarios | 从浅入深家具销售情景对话",
+  "levels": [
+    {
+      "id": 1,
+      "title": "Level 1: Welcome & First Meeting",
+      "title_zh": "第一关：欢迎与初次见面",
+      "difficulty": "Beginner",
+      "summary": "Salesperson greets customer, exchanges name cards and offers catalogue. Simple polite language.",
+      "characters": ["Salesperson (Li Wei)", "Customer (Mr. Zhang)"],
+      "image_prompt": "Bright modern furniture showroom in China, friendly professional female Chinese salesperson in business suit holding a name card and catalogue, smiling warmly at a polite male customer in casual clothes, wooden floor, various sofas and tables in soft natural light, realistic lifestyle commercial photography, high detail",
+      "dialogue": {
+        "english_clear": [
+          {"speaker": "Salesperson", "text": "Hello, welcome to our showroom. My name is Li Wei."},
+          {"speaker": "Customer", "text": "Hello, nice to meet you. I'm looking for some furniture."},
+          {"speaker": "Salesperson", "text": "This is my name card. Here is our catalogue. Please take your time."},
+          {"speaker": "Customer", "text": "Thank you. What kind of furniture do you have?"}
+        ],
+        "english_natural": [
+          {"speaker": "Salesperson", "text": "Hi there! Welcome to our showroom. I'm Li Wei, nice to meet you."},
+          {"speaker": "Customer", "text": "Hello! I'm just looking around for some new pieces."},
+          {"speaker": "Salesperson", "text": "Here's my card and our latest catalogue. Feel free to browse, take your time."},
+          {"speaker": "Customer", "text": "Great, thanks. What styles do you specialize in?"}
+        ],
+        "chinese": [
+          {"speaker": "销售员", "text": "您好，欢迎光临我们的展厅。我叫李伟。"},
+          {"speaker": "顾客", "text": "你好，很高兴认识你。我想看看家具。"},
+          {"speaker": "销售员", "text": "这是我的名片，这是我们的目录。请慢慢看。"},
+          {"speaker": "顾客", "text": "谢谢。你们有什么样的家具？"}
+        ]
+      },
+      "emotions": ["friendly", "professional", "curious"]
+    },
+    {
+      "id": 2,
+      "title": "Level 2: Asking About a Coffee Table",
+      "title_zh": "第二关：询问咖啡桌",
+      "difficulty": "Beginner+",
+      "summary": "Customer asks to see coffee tables, salesperson shows options and asks preference.",
+      "characters": ["Salesperson", "Customer"],
+      "image_prompt": "Modern furniture showroom, salesperson pointing at a beautiful wooden coffee table, customer examining it closely, bright lighting, several coffee tables of different styles in background, lifestyle retail photo, realistic, inviting atmosphere",
+      "dialogue": {
+        "english_clear": [
+          {"speaker": "Customer", "text": "Can I see some coffee tables?"},
+          {"speaker": "Salesperson", "text": "Sure. We have many styles. Which style are you looking for?"},
+          {"speaker": "Customer", "text": "I like modern and simple designs."},
+          {"speaker": "Salesperson", "text": "This one is very popular. It is solid oak."}
+        ],
+        "english_natural": [
+          {"speaker": "Customer", "text": "Hi, could I take a look at your coffee tables?"},
+          {"speaker": "Salesperson", "text": "Of course! We have quite a selection. Any particular style in mind?"},
+          {"speaker": "Customer", "text": "Something clean and modern would be nice."},
+          {"speaker": "Salesperson", "text": "This oak one is one of our bestsellers. Super versatile."}
+        ],
+        "chinese": [
+          {"speaker": "顾客", "text": "我能看看咖啡桌吗？"},
+          {"speaker": "销售员", "text": "当然。我们有很多款式。您喜欢什么风格的？"},
+          {"speaker": "顾客", "text": "我喜欢现代简约风格的。"},
+          {"speaker": "销售员", "text": "这款很受欢迎，是实木橡木的。"}
+        ]
+      },
+      "emotions": ["helpful", "enthusiastic", "interested"]
+    },
+    {
+      "id": 3,
+      "title": "Level 3: Checking Dimensions & Materials",
+      "title_zh": "第三关：确认尺寸与材质",
+      "difficulty": "Intermediate",
+      "summary": "Customer asks detailed questions about size and material of a sofa. Sales explains options.",
+      "characters": ["Salesperson (enthusiastic)", "Customer"],
+      "image_prompt": "Close interaction in furniture store: salesperson measuring or showing specs of a large comfortable fabric sofa to an interested customer, holding a tape measure or spec sheet, cozy living room setup around, warm professional lighting",
+      "dialogue": {
+        "english_clear": [
+          {"speaker": "Customer", "text": "What are the dimensions of this sofa?"},
+          {"speaker": "Salesperson", "text": "This three-seater is 220 cm wide, 95 cm deep and 85 cm high."},
+          {"speaker": "Customer", "text": "Is the fabric easy to clean? What material is the frame?"},
+          {"speaker": "Salesperson", "text": "The fabric is stain-resistant. The frame is solid wood."}
+        ],
+        "english_natural": [
+          {"speaker": "Customer", "text": "How big is this sofa exactly?"},
+          {"speaker": "Salesperson", "text": "It's a 220 by 95 by 85 cm three-seater. Fits most living rooms nicely."},
+          {"speaker": "Customer", "text": "And the material? Is the fabric durable and easy to maintain?"},
+          {"speaker": "Salesperson", "text": "Yes, premium performance fabric - spill proof. Solid hardwood frame underneath."}
+        ],
+        "chinese": [
+          {"speaker": "顾客", "text": "这个沙发的尺寸是多少？"},
+          {"speaker": "销售员", "text": "这款三人沙发宽220厘米，深95厘米，高85厘米。"},
+          {"speaker": "顾客", "text": "面料好打理吗？框架是什么材质？"},
+          {"speaker": "销售员", "text": "面料防污，框架是实木的。"}
+        ]
+      },
+      "emotions": ["curious", "informative", "confident"]
+    },
+    {
+      "id": 4,
+      "title": "Level 4: Comparing Two Options with a Partner",
+      "title_zh": "第四关：和伴侣一起比较两款",
+      "difficulty": "Intermediate+",
+      "summary": "A couple discusses two different sofas with salesperson. Decision making dialogue.",
+      "characters": ["Salesperson", "Wife (Customer)", "Husband (Customer)"],
+      "image_prompt": "Happy young Chinese couple standing in front of two sofas (one modern gray fabric, one classic brown leather) discussing with smiling salesperson, bright airy showroom, natural window light, lifestyle realistic photo",
+      "dialogue": {
+        "english_clear": [
+          {"speaker": "Wife", "text": "I like the gray one. It looks more modern."},
+          {"speaker": "Husband", "text": "The brown leather feels more comfortable. What do you think?"},
+          {"speaker": "Salesperson", "text": "Both are excellent. The gray is fabric with removable covers. The leather will age beautifully."},
+          {"speaker": "Wife", "text": "Can we sit on them for a minute?"}
+        ],
+        "english_natural": [
+          {"speaker": "Wife", "text": "The gray sofa feels fresher and more modern to me."},
+          {"speaker": "Husband", "text": "Yeah but this leather one is so soft. Salesperson, which would you recommend for daily use?"},
+          {"speaker": "Salesperson", "text": "It depends. Fabric is easier to refresh, leather develops character over time and is very durable."},
+          {"speaker": "Wife", "text": "Mind if we test them out for a bit?"}
+        ],
+        "chinese": [
+          {"speaker": "妻子", "text": "我喜欢灰色的，看起来更现代。"},
+          {"speaker": "丈夫", "text": "棕色皮的坐着更舒服。你觉得呢？"},
+          {"speaker": "销售员", "text": "两款都很好。灰色布艺可拆洗，皮质会越用越漂亮。"},
+          {"speaker": "妻子", "text": "我们可以坐坐试试吗？"}
+        ]
+      },
+      "emotions": ["thoughtful", "persuasive", "collaborative"]
+    },
+    {
+      "id": 5,
+      "title": "Level 5: Price, Discount & Payment",
+      "title_zh": "第五关：价格、折扣与付款",
+      "difficulty": "Advanced",
+      "summary": "Negotiating price, asking for discount, payment options and delivery.",
+      "characters": ["Salesperson", "Customer (business style)"],
+      "image_prompt": "Professional negotiation moment: customer and salesperson at a small desk in the showroom looking at price list on tablet, friendly but serious expressions, high end furniture visible behind, clean modern retail interior",
+      "dialogue": {
+        "english_clear": [
+          {"speaker": "Customer", "text": "How much is this sofa set?"},
+          {"speaker": "Salesperson", "text": "The full living room set is 18,800 RMB. We have a promotion this month."},
+          {"speaker": "Customer", "text": "Can you give me a better price? I am buying for my new apartment."},
+          {"speaker": "Salesperson", "text": "I can offer 15% off if you pay today. Free delivery within the city."}
+        ],
+        "english_natural": [
+          {"speaker": "Customer", "text": "What's the price for the whole set?"},
+          {"speaker": "Salesperson", "text": "18,800 for the sofa, two armchairs and coffee table. But we're running a nice promotion."},
+          {"speaker": "Customer", "text": "Is there any room to move on price? I'm furnishing a whole apartment."},
+          {"speaker": "Salesperson", "text": "For you today I can do 15% off and throw in free delivery inside the city limits."}
+        ],
+        "chinese": [
+          {"speaker": "顾客", "text": "这套沙发多少钱？"},
+          {"speaker": "销售员", "text": "全套客厅家具18800元，这个月有优惠活动。"},
+          {"speaker": "顾客", "text": "能再便宜点吗？我是要装修新房。"},
+          {"speaker": "销售员", "text": "今天付全款可以打八五折，市内免费送货安装。"}
+        ]
+      },
+      "emotions": ["businesslike", "persuasive", "accommodating"]
+    },
+    {
+      "id": 6,
+      "title": "Level 6: Delivery, Installation & After-sales",
+      "title_zh": "第六关：配送、安装与售后",
+      "difficulty": "Advanced+",
+      "summary": "Finalizing order with delivery date, installation, warranty discussion. Building trust.",
+      "characters": ["Salesperson", "Customer"],
+      "image_prompt": "Customer signing digital order on tablet while salesperson explains delivery timeline, beautiful delivered furniture mock in background or happy family scene, professional reassuring atmosphere, modern Chinese home furniture store",
+      "dialogue": {
+        "english_clear": [
+          {"speaker": "Salesperson", "text": "We can deliver and install next Tuesday between 9am and 12pm."},
+          {"speaker": "Customer", "text": "Perfect. Is there a warranty?"},
+          {"speaker": "Salesperson", "text": "Three years for the frame and one year for the fabric. Free repair within the city."},
+          {"speaker": "Customer", "text": "Great. I will take it. Thank you for your help."}
+        ],
+        "english_natural": [
+          {"speaker": "Salesperson", "text": "How about next Tuesday morning, 9 to 12? Our team will bring it up and assemble everything."},
+          {"speaker": "Customer", "text": "That works. And warranty coverage?"},
+          {"speaker": "Salesperson", "text": "Solid three-year frame warranty, one year on upholstery. Any issues inside the city and we come fix it for free."},
+          {"speaker": "Customer", "text": "Excellent. Let's go ahead and order it. You've been really helpful."}
+        ],
+        "chinese": [
+          {"speaker": "销售员", "text": "我们可以在下周二上午9点到12点送货并安装。"},
+          {"speaker": "顾客", "text": "好的。有保修吗？"},
+          {"speaker": "销售员", "text": "框架三年，面料一年。市内免费维修。"},
+          {"speaker": "顾客", "text": "太好了。我要了。谢谢你的帮助。"}
+        ]
+      },
+      "emotions": ["reassuring", "professional", "satisfied"]
+    }
+  ]
+}

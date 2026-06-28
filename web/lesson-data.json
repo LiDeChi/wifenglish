@@ -1,0 +1,200 @@
+{
+  "lesson_id": "living-room-sofa-01",
+  "title_en": "Buying a Living Room Sofa Set",
+  "title_zh": "购买客厅沙发套装",
+  "description": "Follow Mr. Zhang as he visits the showroom, finds the perfect sofa, negotiates, and arranges delivery.",
+  "visual_style": "See style-guide.md for full consistency rules",
+  "scenes": [
+    {
+      "id": 1,
+      "image": "visuals/scene-01.jpg",
+      "title_en": "Welcome at the Showroom",
+      "title_zh": "展厅欢迎",
+      "description": "Mr. Zhang enters. Li Wei greets him warmly.",
+      "lines": [
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Hello, welcome to our showroom. My name is Li Wei.",
+          "zh": "您好，欢迎光临我们的展厅。我叫李伟。",
+          "vocab": ["showroom", "welcome"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Hi, I'm looking for a sofa set for my new apartment.",
+          "zh": "你好，我在为新公寓找一套沙发。",
+          "vocab": ["sofa set", "apartment"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Great! Please take your time. Here is our latest catalogue.",
+          "zh": "太好了！请慢慢看。这是我们最新的目录。",
+          "vocab": ["take your time", "catalogue"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "image": "visuals/scene-02.jpg",
+      "title_en": "Looking at the Grey Sofa",
+      "title_zh": "查看灰色沙发",
+      "description": "Li Wei shows a modern grey fabric sofa.",
+      "lines": [
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "This three-seater sofa is very popular right now.",
+          "zh": "这款三人沙发现在非常受欢迎。",
+          "vocab": ["three-seater", "popular"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "I like the color. Is the fabric easy to clean?",
+          "zh": "我喜欢这个颜色。面料好打理吗？",
+          "vocab": ["fabric", "easy to clean"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Yes, it's a premium performance fabric. Very durable and stain-resistant.",
+          "zh": "是的，这是高级功能面料，非常耐用且防污。",
+          "vocab": ["performance fabric", "stain-resistant"]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "image": "visuals/scene-03.jpg",
+      "title_en": "Checking Dimensions",
+      "title_zh": "确认尺寸",
+      "description": "They measure and discuss size together.",
+      "lines": [
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "What are the exact dimensions?",
+          "zh": "具体尺寸是多少？",
+          "vocab": ["dimensions"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "It is 220 centimeters wide, 95 deep, and 85 high.",
+          "zh": "宽220厘米，深95厘米，高85厘米。",
+          "vocab": ["centimeters", "wide", "deep"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Perfect. It should fit my living room very well.",
+          "zh": "太好了，应该很适合我的客厅。",
+          "vocab": ["fit", "living room"]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "image": "visuals/scene-04.jpg",
+      "title_en": "Testing Comfort",
+      "title_zh": "试坐感受",
+      "description": "Mr. Zhang sits on the sofa to test it.",
+      "lines": [
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Would you like to sit and try it?",
+          "zh": "您要不要坐下来试试？",
+          "vocab": ["try it"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Sure. It's quite comfortable. The cushions are firm but soft.",
+          "zh": "好的。坐着很舒服，靠垫结实又柔软。",
+          "vocab": ["comfortable", "cushions", "firm"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "We also have a matching armchair and coffee table.",
+          "zh": "我们还有配套的单人椅和茶几。",
+          "vocab": ["matching", "armchair", "coffee table"]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "image": "visuals/scene-05.jpg",
+      "title_en": "Discussing the Price",
+      "title_zh": "讨论价格",
+      "description": "Negotiation at the small table.",
+      "lines": [
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "How much is the full set?",
+          "zh": "全套多少钱？",
+          "vocab": ["full set"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "The sofa, armchair and coffee table together are 18,800 RMB.",
+          "zh": "沙发、单人椅和茶几一共18800元。",
+          "vocab": ["together"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Can you give me a better price? I'm furnishing the whole apartment.",
+          "zh": "能再便宜一点吗？我要装修整个公寓。",
+          "vocab": ["better price", "furnishing"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "I can offer 15% off if you decide today. Free delivery and installation.",
+          "zh": "如果今天决定，我可以给您打八五折。免费送货安装。",
+          "vocab": ["15% off", "delivery", "installation"]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "image": "visuals/scene-06.jpg",
+      "title_en": "Final Decision & Delivery",
+      "title_zh": "最终决定与配送",
+      "description": "They finalize the order and discuss schedule.",
+      "lines": [
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Alright, I'll take the set. When can you deliver?",
+          "zh": "好的，我要这套了。什么时候可以送货？",
+          "vocab": ["I'll take it", "deliver"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "We can deliver and install next Tuesday morning between 9 and 12.",
+          "zh": "我们可以在下周二上午9点到12点送货并安装。",
+          "vocab": ["deliver and install"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Perfect. Thank you very much for your help.",
+          "zh": "太好了。非常感谢你的帮助。",
+          "vocab": ["Perfect", "thank you"]
+        }
+      ]
+    }
+  ],
+  "key_vocab_summary": [
+    "showroom", "sofa set", "three-seater", "performance fabric", "stain-resistant",
+    "dimensions", "centimeters", "cushions", "matching", "full set", "delivery", "installation"
+  ]
+}

@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>WifEnglish • 购买客厅沙发套装</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        />
+        <style>
+            body {
+                font-family:
+                    system-ui,
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    Roboto,
+                    sans-serif;
+            }
+            .subtitle-panel {
+                scrollbar-width: thin;
+                scrollbar-color: #4b5563 #1f2937;
+            }
+            .subtitle-line {
+                transition: all 0.15s ease;
+            }
+            .subtitle-line.current {
+                background-color: #3f2a0f;
+                border-left: 4px solid #f59e0b;
+                font-weight: 600;
+            }
+            .vocab {
+                font-weight: 700;
+                color: #fde047;
+                /* no background color for better readability */
+                text-decoration: underline;
+                text-underline-offset: 2px;
+                text-decoration-color: #fde047;
+            }
+            .bubble {
+                background: #fff;
+                color: #111827;
+                border-radius: 18px;
+                padding: 14px 18px;
+                box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+                position: relative;
+            }
+            .bubble:after {
+                content: "";
+                position: absolute;
+                bottom: -8px;
+                left: 24px;
+                border: 8px solid transparent;
+                border-top-color: #fff;
+            }
+            .scene-image {
+                transition: opacity 0.3s ease;
+            }
+            .auto-playing {
+                animation: pulse 2s infinite;
+            }
+        </style>
+    </head>
+    <body class="bg-zinc-950 text-zinc-100">
+        <div class="max-w-6xl mx-auto p-3 md:p-5">
+            <!-- Global Top Bar -->
+            <div class="flex items-center justify-between mb-3 px-1">
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-9 h-9 bg-amber-500 rounded-2xl flex items-center justify-center"
+                    >
+                        <i class="fa-solid fa-couch text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-semibold tracking-tight">
+                            WifEnglish
+                        </h1>
+                    </div>
+                </div>
+                <div id="global-nav" class="flex gap-2 text-sm">
+                    <!-- populated by JS -->
+                </div>
+            </div>
+
+            <!-- HOME / LESSONS LIST VIEW -->
+            <div id="home-view">
+                <div class="mb-4 px-1">
+                    <h2 class="text-lg font-medium mb-1">课程列表</h2>
+                    <p class="text-xs text-zinc-500">点击课程进入自动播放</p>
+                </div>
+
+                <!-- Lesson cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div
+                        onclick="enterPlayer()"
+                        class="cursor-pointer bg-zinc-900 hover:bg-zinc-800 border border-white/10 rounded-3xl p-5 transition"
+                    >
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div
+                                    class="text-amber-400 text-xs tracking-widest"
+                                >
+                                    LESSON 01
+                                </div>
+                                <div class="text-xl font-semibold mt-1">
+                                    购买客厅沙发套装
+                                </div>
+                                <div class="text-sm text-zinc-400">
+                                    Buying a Living Room Sofa Set
+                                </div>
+                            </div>
+                            <div class="text-right text-xs">
+                                <div
+                                    class="bg-emerald-900/60 text-emerald-300 px-2 py-0.5 rounded"
+                                >
+                                    6 场景
+                                </div>
+                                <div class="mt-1 text-zinc-500">
+                                    自动连续播放
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-xs text-zinc-400">
+                            跟随着张先生完成从进店到下单的全流程对话练习
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-zinc-900 border border-white/10 rounded-3xl p-5 opacity-60"
+                    >
+                        <div class="text-xs text-zinc-400">
+                            更多课程即将上线
+                        </div>
+                        <div class="text-lg mt-2">敬请期待</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PLAYER VIEW -->
+            <div id="player-view" class="hidden">
+                <!-- Player Top Bar -->
+                <div
+                    class="flex items-center justify-between bg-zinc-900 border border-white/10 rounded-2xl px-3 py-2 mb-2"
+                >
+                    <div class="flex items-center gap-2">
+                        <button
+                            onclick="showHome()"
+                            class="flex items-center gap-2 px-3 py-1.5 text-sm hover:bg-zinc-800 rounded-xl"
+                        >
+                            <i class="fa-solid fa-arrow-left"></i>
+                            <span class="hidden sm:inline">返回课程列表</span>
+                        </button>
+                        <button
+                            onclick="showHome()"
+                            class="flex items-center gap-1.5 px-3 py-1.5 text-sm hover:bg-zinc-800 rounded-xl"
+                        >
+                            <i class="fa-solid fa-home"></i>
+                            <span>首页</span>
+                        </button>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <button
+                            onclick="toggleSidebar()"
+                            class="px-3 py-1.5 text-sm flex items-center gap-1.5 hover:bg-zinc-800 rounded-xl border border-white/10"
+                        >
+                            <i class="fa-solid fa-bars"></i>
+                            <span class="hidden sm:inline">菜单</span>
+                        </button>
+                        <div class="text-xs text-amber-400 px-2">
+                            自动播放中
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SPLIT SCREEN: Image + Subtitles -->
+                <div
+                    class="bg-zinc-900 border border-white/10 rounded-3xl overflow-hidden"
+                >
+                    <div
+                        id="player-split"
+                        class="flex flex-col md:flex-row min-h-[520px] md:min-h-[560px]"
+                    >
+                        <!-- IMAGE PANE (left on wide, top on mobile) -->
+                        <div
+                            class="md:w-[58%] lg:w-[62%] bg-black flex items-center justify-center p-2 relative"
+                        >
+                            <img
+                                id="scene-image"
+                                class="max-h-[420px] md:max-h-[520px] w-full object-contain rounded-2xl"
+                                alt="Scene visual"
+                            />
+                        </div>
+
+                        <!-- TEXT PANE (right on wide, bottom on mobile) -->
+                        <div
+                            class="md:w-[42%] lg:w-[38%] flex flex-col border-t md:border-t-0 md:border-l border-white/10 bg-zinc-950"
+                        >
+                            <!-- Current speech bubble / large display -->
+                            <div class="p-4 border-b border-white/10">
+                                <div
+                                    id="current-speaker"
+                                    class="text-amber-400 text-xs font-semibold mb-0.5"
+                                ></div>
+                                <div
+                                    id="current-en"
+                                    class="text-[17px] leading-tight font-medium text-white"
+                                ></div>
+                                <div
+                                    id="current-zh"
+                                    class="text-sm text-zinc-300 mt-1 leading-snug"
+                                ></div>
+                            </div>
+
+                            <!-- Scrollable full subtitles -->
+                            <div
+                                class="flex-1 overflow-y-auto subtitle-panel px-2 py-2 text-[14.5px] leading-snug bg-zinc-900"
+                                id="subtitle-list"
+                            >
+                                <!-- JS populated -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom controls -->
+                    <div
+                        class="px-4 py-3 bg-zinc-900 border-t border-white/10 flex items-center gap-2"
+                    >
+                        <button
+                            id="play-btn"
+                            class="flex-1 flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 transition text-white font-medium py-2 px-5 rounded-2xl text-sm"
+                        >
+                            <i class="fa-solid fa-play"></i>
+                            <span id="play-text">开始自动播放</span>
+                        </button>
+                        <button
+                            id="pause-btn"
+                            onclick="stop()"
+                            class="hidden px-4 py-2 bg-zinc-800 hover:bg-zinc-700 rounded-2xl text-sm"
+                        >
+                            <i class="fa-solid fa-pause"></i>
+                        </button>
+                        <button
+                            onclick="restartLesson()"
+                            class="px-3 py-2 bg-zinc-800 hover:bg-zinc-700 rounded-2xl text-sm"
+                        >
+                            <i class="fa-solid fa-undo"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expandable Sidebar (drawer) -->
+            <div
+                id="sidebar"
+                onclick="toggleSidebar()"
+                class="hidden fixed inset-0 bg-black/60 z-40"
+            >
+                <div
+                    onclick="event.stopImmediatePropagation()"
+                    class="absolute left-0 top-0 bottom-0 w-72 bg-zinc-900 border-r border-white/10 p-4 overflow-auto"
+                >
+                    <div class="font-semibold mb-3 text-sm px-1">课程导航</div>
+                    <div
+                        onclick="
+                            showHome();
+                            toggleSidebar();
+                        "
+                        class="cursor-pointer px-3 py-2 hover:bg-zinc-800 rounded-xl mb-1 flex items-center gap-2 text-sm"
+                    >
+                        <i class="fa-solid fa-list w-4"></i> 返回课程列表
+                    </div>
+                    <div
+                        onclick="
+                            showHome();
+                            toggleSidebar();
+                        "
+                        class="cursor-pointer px-3 py-2 hover:bg-zinc-800 rounded-xl flex items-center gap-2 text-sm"
+                    >
+                        <i class="fa-solid fa-home w-4"></i> 返回首页
+                    </div>
+                    <div class="mt-4 text-[10px] text-zinc-500 px-1">
+                        当前课程：购买客厅沙发套装
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-2 text-[10px] text-center text-zinc-500">
+                角色独立声音 • 纯净语音 • 图片与字幕分屏 • 自动连续播放
+            </div>
+        </div>
+
+        <script>
+            let lessonData = null;
+            let currentSceneIdx = 0;
+            let currentLineIdx = 0;
+            let isPlaying = false;
+            let currentAudio = null;
+            let allLines = []; // flattened for easy navigation
+
+            function showHome() {
+                document.getElementById("home-view").classList.remove("hidden");
+                document.getElementById("player-view").classList.add("hidden");
+                stop();
+            }
+
+            function enterPlayer() {
+                document.getElementById("home-view").classList.add("hidden");
+                document
+                    .getElementById("player-view")
+                    .classList.remove("hidden");
+                if (!lessonData) {
+                    loadLesson().then(() => {
+                        showScene(0, 0);
+                    });
+                } else {
+                    showScene(0, 0);
+                }
+            }
+
+            function toggleSidebar() {
+                const sb = document.getElementById("sidebar");
+                sb.classList.toggle("hidden");
+            }
+
+            async function loadLesson() {
+                const res = await fetch("lesson-data.json");
+                lessonData = await res.json();
+
+                // Flatten lines for auto-play
+                allLines = [];
+                lessonData.scenes.forEach((scene, sIdx) => {
+                    scene.lines.forEach((line, lIdx) => {
+                        allLines.push({
+                            sceneIdx: sIdx,
+                            lineIdx: lIdx,
+                            ...line,
+                            scene,
+                        });
+                    });
+                });
+
+                renderSubtitleList();
+                showScene(0, 0);
+            }
+
+            function renderSubtitleList() {
+                const container = document.getElementById("subtitle-list");
+                container.innerHTML = "";
+
+                lessonData.scenes.forEach((scene, sIdx) => {
+                    // Scene header
+                    const header = document.createElement("div");
+                    header.className =
+                        "px-2 pt-3 pb-1 text-xs font-semibold text-amber-400 tracking-wide";
+                    header.textContent = `${scene.id}. ${scene.title_en} / ${scene.title_zh}`;
+                    container.appendChild(header);
+
+                    scene.lines.forEach((line, lIdx) => {
+                        const div = document.createElement("div");
+                        div.className = `subtitle-line px-3 py-2 rounded-lg cursor-pointer flex gap-3 items-start`;
+                        div.dataset.globalIdx = allLines.findIndex(
+                            (x) => x.sceneIdx === sIdx && x.lineIdx === lIdx,
+                        );
+
+                        const en = highlightVocab(line.en, line.vocab || []);
+                        const zh = highlightVocab(line.zh, line.vocab || []);
+
+                        div.innerHTML = `
+            <div class="w-14 shrink-0 text-xs pt-0.5 font-medium text-zinc-400">${line.speaker}</div>
+            <div class="flex-1 min-w-0">
+              <div class="text-white">${en}</div>
+              <div class="text-zinc-400 text-sm">${zh}</div>
+            </div>
+          `;
+
+                        div.onclick = () => {
+                            stop();
+                            showScene(sIdx, lIdx);
+                            playCurrentLine();
+                        };
+
+                        container.appendChild(div);
+                    });
+                });
+            }
+
+            function highlightVocab(text, vocabList) {
+                if (!vocabList || vocabList.length === 0) return text;
+                let result = text;
+                vocabList.forEach((v) => {
+                    const re = new RegExp(`\\b${v}\\b`, "gi");
+                    result = result.replace(
+                        re,
+                        `<span class="vocab">${v}</span>`,
+                    );
+                });
+                return result;
+            }
+
+            function showScene(sceneIdx, lineIdx) {
+                const scene = lessonData.scenes[sceneIdx];
+                if (!scene) return;
+
+                currentSceneIdx = sceneIdx;
+                currentLineIdx = lineIdx;
+
+                // Update image
+                const img = document.getElementById("scene-image");
+                img.src = `visuals/scene-${String(scene.id).padStart(2, "0")}.jpg`;
+
+                // Update current line display (split screen bubble area)
+                const line = scene.lines[lineIdx];
+                if (line) {
+                    const speakerEl =
+                        document.getElementById("current-speaker");
+                    const enEl = document.getElementById("current-en");
+                    const zhEl = document.getElementById("current-zh");
+
+                    speakerEl.textContent = line.speaker;
+                    enEl.innerHTML = highlightVocab(line.en, line.vocab || []);
+                    zhEl.innerHTML = highlightVocab(line.zh, line.vocab || []);
+                }
+
+                // Highlight current line in list
+                highlightSubtitleLine(sceneIdx, lineIdx);
+            }
+
+            function highlightSubtitleLine(sceneIdx, lineIdx) {
+                document
+                    .querySelectorAll(".subtitle-line")
+                    .forEach((el) => el.classList.remove("current"));
+
+                const globalIdx = allLines.findIndex(
+                    (x) => x.sceneIdx === sceneIdx && x.lineIdx === lineIdx,
+                );
+                const target = document.querySelector(
+                    `.subtitle-line[data-global-idx="${globalIdx}"]`,
+                );
+
+                if (target) {
+                    target.classList.add("current");
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "nearest",
+                    });
+                }
+            }
+
+            function playCurrentLine() {
+                stopAudio();
+
+                const scene = lessonData.scenes[currentSceneIdx];
+                const line = scene.lines[currentLineIdx];
+                if (!line) return;
+
+                const fname = `audio/lesson01/scene${String(scene.id).padStart(2, "0")}_line${currentLineIdx.toString().padStart(2, "0")}.mp3`;
+
+                currentAudio = new Audio(fname);
+                currentAudio.onended = () => {
+                    // Auto advance
+                    if (!isPlaying) return;
+                    advanceToNext();
+                };
+
+                currentAudio.play().catch((e) => {
+                    console.warn("Audio play failed", e);
+                    // Still advance after a delay for demo
+                    setTimeout(() => {
+                        if (isPlaying) advanceToNext();
+                    }, 1200);
+                });
+
+                // Make sure correct scene + bubble is shown
+                showScene(currentSceneIdx, currentLineIdx);
+            }
+
+            function advanceToNext() {
+                // Move to next line
+                let nextScene = currentSceneIdx;
+                let nextLine = currentLineIdx + 1;
+
+                const currentSceneLines =
+                    lessonData.scenes[currentSceneIdx].lines.length;
+
+                if (nextLine >= currentSceneLines) {
+                    // Go to next scene
+                    nextScene = currentSceneIdx + 1;
+                    nextLine = 0;
+
+                    if (nextScene >= lessonData.scenes.length) {
+                        // End of lesson
+                        finishLesson();
+                        return;
+                    }
+                }
+
+                showScene(nextScene, nextLine);
+
+                // Small delay before playing next line
+                setTimeout(() => {
+                    if (isPlaying) playCurrentLine();
+                }, 420);
+            }
+
+            function finishLesson() {
+                isPlaying = false;
+                const btn = document.getElementById("play-btn");
+                const pauseBtn = document.getElementById("pause-btn");
+                btn.classList.remove("hidden");
+                pauseBtn.classList.add("hidden");
+                document.getElementById("play-text").textContent =
+                    "重新播放课程";
+
+                // Show completion in current display
+                const enEl = document.getElementById("current-en");
+                const zhEl = document.getElementById("current-zh");
+                if (enEl) enEl.innerHTML = "课程完成！Great job!";
+                if (zhEl) zhEl.innerHTML = "恭喜你完成本课练习！";
+            }
+
+            function stopAudio() {
+                if (currentAudio) {
+                    currentAudio.pause();
+                    currentAudio = null;
+                }
+            }
+
+            function stop() {
+                isPlaying = false;
+                stopAudio();
+                document.getElementById("pause-btn").classList.add("hidden");
+                document.getElementById("play-btn").classList.remove("hidden");
+            }
+
+            function startAutoPlay() {
+                isPlaying = true;
+                document.getElementById("play-btn").classList.add("hidden");
+                document.getElementById("pause-btn").classList.remove("hidden");
+
+                // If we are at the very end, restart
+                if (
+                    currentSceneIdx === lessonData.scenes.length - 1 &&
+                    currentLineIdx === lessonData.scenes.at(-1).lines.length - 1
+                ) {
+                    showScene(0, 0);
+                }
+
+                playCurrentLine();
+            }
+
+            function setupControls() {
+                const playBtn = document.getElementById("play-btn");
+                const pauseBtn = document.getElementById("pause-btn");
+
+                if (playBtn) {
+                    playBtn.onclick = () => {
+                        if (!isPlaying) {
+                            startAutoPlay();
+                        }
+                    };
+                }
+
+                // Keyboard support
+                document.addEventListener("keydown", (e) => {
+                    if (e.key === " " || e.key === "k") {
+                        e.preventDefault();
+                        if (isPlaying) {
+                            stop();
+                        } else {
+                            startAutoPlay();
+                        }
+                    }
+                    if (e.key.toLowerCase() === "r") {
+                        stop();
+                        showScene(0, 0);
+                    }
+                });
+            }
+
+            async function init() {
+                // Default to home view with lesson list
+                const home = document.getElementById("home-view");
+                const player = document.getElementById("player-view");
+                if (home) home.classList.remove("hidden");
+                if (player) player.classList.add("hidden");
+
+                const nav = document.getElementById("global-nav");
+                if (nav) {
+                    nav.innerHTML = `<button onclick="showHome()" class="px-3 py-1 hover:bg-zinc-800 rounded-lg text-sm">首页</button>`;
+                }
+
+                setupControls();
+
+                // Preload lesson data
+                try {
+                    const res = await fetch("lesson-data.json");
+                    lessonData = await res.json();
+                    allLines = [];
+                    lessonData.scenes.forEach((scene, sIdx) => {
+                        scene.lines.forEach((line, lIdx) => {
+                            allLines.push({
+                                sceneIdx: sIdx,
+                                lineIdx: lIdx,
+                                ...line,
+                                scene,
+                            });
+                        });
+                    });
+                } catch (e) {}
+            }
+
+            window.enterPlayer = enterPlayer;
+            window.showHome = showHome;
+            window.toggleSidebar = toggleSidebar;
+            window.restartLesson = function () {
+                stop();
+                showScene(0, 0);
+            };
+
+            init();
+        </script>
+    </body>
+</html>
