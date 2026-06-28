@@ -15,11 +15,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: wifenglish
-          directory: web
-          # gitHubToken is optional, enables preview comments on PRs
-          # gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          command: pages deploy web --project-name=wifenglish --commit-dirty=true --branch=main
+          # Optional: you can also set CLOUDFLARE_ACCOUNT_ID env if needed for other commands
+          # env:
+          #   CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
