@@ -9,9 +9,11 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import shutil
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 
@@ -110,12 +112,59 @@ def generate_one(lesson_number: str, scene: dict, lesson: dict, args: argparse.N
         str(args.timeout),
     ]
     print(f"generating {out_path.relative_to(ROOT)}")
-    subprocess.run(cmd, check=True)
+    result = None
+    for attempt in range(1, args.submit_retries + 1):
+        if attempt > 1:
+            wait = min(30, 5 * attempt)
+            print(f"retrying submit for {out_path.relative_to(ROOT)} in {wait}s ({attempt}/{args.submit_retries})")
+            time.sleep(wait)
+        result = subprocess.run(cmd, capture_output=True, text=True)
+        print(result.stdout, end="")
+        print(result.stderr, end="", file=sys.stderr)
+        if result.returncode == 0:
+            break
+        task_id = extract_task_id(result.stdout + "\n" + result.stderr)
+        if task_id:
+            poll_existing_task(task_id, out_path, args)
+            break
+    else:
+        raise subprocess.CalledProcessError(result.returncode if result else 1, cmd)
 
     web_path.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(out_path, web_path)
     print(f"synced {web_path.relative_to(ROOT)}")
     return True
+
+
+def extract_task_id(output: str) -> str | None:
+    match = re.search(r"task_[A-Z0-9]+", output)
+    return match.group(0) if match else None
+
+
+def poll_existing_task(task_id: str, out_path: Path, args: argparse.Namespace) -> None:
+    cmd = [
+        sys.executable,
+        str(APIMART_HELPER),
+        "--task-id",
+        task_id,
+        "--out",
+        str(out_path),
+        "--timeout",
+        str(args.timeout),
+    ]
+    last_output = ""
+    for attempt in range(1, args.poll_retries + 1):
+        if attempt > 1:
+            wait = min(30, 5 * attempt)
+            print(f"retrying task poll {task_id} in {wait}s ({attempt}/{args.poll_retries})")
+            time.sleep(wait)
+        result = subprocess.run(cmd, capture_output=True, text=True)
+        last_output = result.stdout + "\n" + result.stderr
+        print(result.stdout, end="")
+        print(result.stderr, end="", file=sys.stderr)
+        if result.returncode == 0 and out_path.exists() and out_path.stat().st_size > 10_000:
+            return
+    raise RuntimeError(f"Could not complete APIMart task {task_id} after retries:\n{last_output[-2000:]}")
 
 
 def run(args: argparse.Namespace) -> int:
@@ -153,6 +202,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--dry-run", action="store_true", help="print prompt previews only")
     parser.add_argument("--resolution", default="1k", help="APIMart image resolution")
     parser.add_argument("--timeout", type=int, default=300, help="APIMart task timeout in seconds")
+    parser.add_argument("--submit-retries", type=int, default=4, help="retry image task submission after transient failures")
+    parser.add_argument("--poll-retries", type=int, default=6, help="retry task polling after transient network failures")
     return parser.parse_args()
 
 
