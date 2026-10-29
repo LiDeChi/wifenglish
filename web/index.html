@@ -4,6 +4,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>WifEnglish • 购买客厅沙发套装</title>
+        <link
+            rel="icon"
+            href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23171717'/%3E%3Cpath d='M16 34h32v12H16zM20 24h24a6 6 0 0 1 6 6v4H14v-4a6 6 0 0 1 6-6zM20 46v6M44 46v6' fill='none' stroke='%23fafafa' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"
+        />
         <script src="https://cdn.tailwindcss.com"></script>
         <link
             rel="stylesheet"
@@ -87,10 +91,6 @@
                 text-decoration-thickness: 1.5px;
                 text-decoration-color: var(--text-tertiary);
             }
-            .current-line {
-                border-top: 1px solid var(--border);
-                border-bottom: 1px solid var(--border);
-            }
             .scene-image {
                 transition: opacity 0.3s ease;
             }
@@ -106,11 +106,6 @@
                 font-weight: 600;
                 color: var(--text-secondary);
                 flex-shrink: 0;
-            }
-            .avatar-current {
-                width: 32px;
-                height: 32px;
-                font-size: 12px;
             }
             .control-btn {
                 display: inline-flex;
@@ -142,6 +137,82 @@
                 opacity: 0.85;
                 background-color: var(--accent);
             }
+            .control-btn:disabled {
+                cursor: not-allowed;
+                opacity: 0.38;
+            }
+            .control-btn:disabled:hover {
+                color: var(--text-secondary);
+                border-color: var(--border);
+                background-color: transparent;
+            }
+            .bottom-toolbar {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                border: 1px solid var(--border);
+                border-radius: 16px;
+                padding: 10px 12px;
+                background: var(--bg-elevated);
+                width: 100%;
+                max-width: 100%;
+            }
+            .toolbar-group {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                min-width: 0;
+            }
+            .toolbar-divider {
+                width: 1px;
+                height: 20px;
+                background: var(--border);
+                margin: 0 4px;
+            }
+            .lesson-select {
+                min-width: 172px;
+                max-width: min(240px, 100%);
+                height: 36px;
+                padding: 0 34px 0 12px;
+                border: 1px solid var(--border);
+                border-radius: 9999px;
+                color: var(--text-secondary);
+                background-color: var(--bg-elevated);
+                font-size: 13px;
+                outline: none;
+            }
+            .lesson-select:focus {
+                border-color: var(--border-strong);
+                color: var(--text);
+            }
+            .review-action {
+                min-width: 82px;
+            }
+            .review-action.active {
+                background-color: var(--accent);
+                border-color: var(--accent);
+                color: var(--accent-contrast);
+            }
+            #review-card {
+                border-radius: 18px;
+                box-shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
+            }
+            .dark #review-card {
+                box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+            }
+            .review-study-actions {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 8px;
+                margin-top: 28px;
+                padding-top: 20px;
+                border-top: 1px solid var(--border);
+            }
             .speed-btn {
                 padding: 5px 10px;
                 border-radius: 9999px;
@@ -162,6 +233,8 @@
             }
             .player-expanded {
                 max-width: none !important;
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
                 padding-left: 8px !important;
                 padding-right: 8px !important;
             }
@@ -180,6 +253,37 @@
                     height: 30vh;
                     max-height: 240px;
                     min-height: 200px;
+                }
+                .control-btn {
+                    min-height: 36px;
+                    padding: 7px 10px;
+                    font-size: 12px;
+                }
+                .bottom-toolbar {
+                    align-items: stretch;
+                    gap: 8px;
+                    padding: 9px;
+                }
+                .toolbar-group {
+                    width: 100%;
+                    gap: 6px;
+                }
+                .toolbar-divider {
+                    display: none;
+                }
+                .lesson-select {
+                    flex: 1 1 150px;
+                    min-width: 0;
+                }
+                .speed-btn {
+                    padding: 5px 8px;
+                }
+                #review-card {
+                    border-radius: 16px;
+                    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+                }
+                .review-study-actions {
+                    justify-content: center;
                 }
             }
             @media (max-width: 900px) and (orientation: landscape) {
@@ -243,22 +347,10 @@
 
                 <!-- Main content -->
                 <div id="player-split" class="flex-1 flex flex-col md:flex-row overflow-hidden min-h-0">
-                    <!-- LEFT: image + current line -->
+                    <!-- LEFT: image -->
                     <div class="w-full md:w-[60%] lg:w-[58%] flex flex-col flex-shrink-0 md:flex-shrink md:min-h-0">
                         <div class="relative flex items-center justify-center overflow-hidden image-area bg-black">
                             <img id="scene-image" class="max-h-full max-w-full object-contain scene-image" alt="Scene visual" />
-                        </div>
-
-                        <!-- Current line -->
-                        <div class="current-line bg-[var(--bg-elevated)] px-5 py-4 flex-shrink-0">
-                            <div class="flex items-start gap-3 max-w-3xl mx-auto">
-                                <div id="current-avatar" class="avatar avatar-current"></div>
-                                <div class="flex-1 min-w-0">
-                                    <div id="current-speaker" class="text-xs font-medium text-[var(--text-tertiary)] mb-1"></div>
-                                    <div id="current-en" class="text-base leading-relaxed"></div>
-                                    <div id="current-zh" class="text-sm text-[var(--text-secondary)] mt-1 leading-relaxed"></div>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
@@ -277,9 +369,9 @@
                 <div
                     class="flex-shrink-0 px-4 py-4 md:py-5"
                 >
-                    <div class="mx-auto flex items-center justify-center gap-1 sm:gap-2 md:gap-3 border border-[var(--border)] rounded-2xl px-3 py-2.5 md:px-4 md:py-3 bg-[var(--bg-elevated)] w-fit max-w-full">
+                    <div class="bottom-toolbar mx-auto sm:w-fit md:px-4 md:py-3">
                         <!-- Nav group -->
-                        <div class="flex items-center gap-1 sm:gap-1.5">
+                        <div class="toolbar-group">
                             <button onclick="showHome()" class="control-btn" title="返回课程列表">
                                 <i class="fa-solid fa-arrow-left"></i>
                                 <span class="hidden sm:inline">课程列表</span>
@@ -293,10 +385,30 @@
                             </button>
                         </div>
 
-                        <div class="w-px h-5 bg-[var(--border)] mx-1 sm:mx-2"></div>
+                        <div class="toolbar-divider"></div>
+
+                        <!-- Lesson jump group -->
+                        <div class="toolbar-group">
+                            <button id="player-prev-lesson" onclick="goToRelativeLesson(-1, 'player')" class="control-btn" title="上一课">
+                                <i class="fa-solid fa-chevron-left"></i>
+                                <span class="hidden sm:inline">上一课</span>
+                            </button>
+                            <select
+                                id="player-lesson-select"
+                                class="lesson-select"
+                                onchange="handleLessonSelect(this.value, 'player')"
+                                title="选择课程"
+                            ></select>
+                            <button id="player-next-lesson" onclick="goToRelativeLesson(1, 'player')" class="control-btn" title="下一课">
+                                <span class="hidden sm:inline">下一课</span>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+
+                        <div class="toolbar-divider"></div>
 
                         <!-- Main playback group -->
-                        <div class="flex items-center gap-1 sm:gap-1.5">
+                        <div class="toolbar-group">
                             <button
                                 id="play-pause-btn"
                                 onclick="togglePlayPause()"
@@ -308,9 +420,13 @@
                             <button onclick="restartLesson()" class="control-btn" title="重新开始">
                                 <i class="fa-solid fa-undo"></i>
                             </button>
+                            <button onclick="startCurrentLessonReview()" class="control-btn" title="复习卡片">
+                                <i class="fa-solid fa-layer-group"></i>
+                                <span id="review-current-text" class="hidden sm:inline">复习</span>
+                            </button>
                         </div>
 
-                        <div class="w-px h-5 bg-[var(--border)] mx-1 sm:mx-2"></div>
+                        <div class="toolbar-divider"></div>
 
                         <!-- Speed group -->
                         <div class="flex items-center gap-0.5 border border-[var(--border)] rounded-full px-1 py-0.5">
@@ -323,7 +439,38 @@
                     </div>
                 </div>
             </div>
+
+            <!-- REVIEW VIEW -->
+            <div id="review-view" class="hidden flex flex-col h-[100dvh] overflow-hidden">
+                <div
+                    class="flex-shrink-0 flex items-center justify-center border-b border-[var(--border)] py-3"
+                >
+                    <div class="text-center px-4">
+                        <div id="review-lesson-number" class="text-xs text-[var(--text-tertiary)] tracking-widest font-medium">LESSON 01</div>
+                        <div id="review-lesson-title" class="text-sm font-medium mt-0.5">课后复习</div>
+                    </div>
+                </div>
+
+                <div class="flex-1 overflow-y-auto min-h-0 px-2 py-4 md:px-4 md:py-6">
+                    <div class="max-w-3xl mx-auto">
+                        <div class="flex items-end justify-between gap-4 mb-4 px-1">
+                            <div>
+                                <div class="text-xs text-[var(--text-tertiary)] tracking-wide">复习卡片</div>
+                                <h2 id="review-card-title" class="text-xl font-semibold mt-1">课后复习</h2>
+                            </div>
+                            <div id="review-progress" class="text-sm text-[var(--text-secondary)]"></div>
+                        </div>
+
+                        <div id="review-card" class="card border border-[var(--border)] rounded-xl p-5 md:p-6"></div>
+                    </div>
+                </div>
+
+                <div class="flex-shrink-0 px-4 py-4 md:py-5">
+                    <div id="review-bottom-toolbar" class="bottom-toolbar mx-auto sm:w-fit md:px-4 md:py-3"></div>
+                </div>
+            </div>
         </div>
+        <audio id="lesson-audio" preload="auto" playsinline webkit-playsinline></audio>
 
         <script>
             const LESSONS = [
@@ -367,6 +514,46 @@
                     audioDir: "audio/lesson04",
                     sceneCount: 6,
                 },
+                {
+                    number: "05",
+                    titleZh: "比较不同沙发款式",
+                    titleEn: "Comparing Different Sofa Styles",
+                    description: "比较组合沙发、功能沙发、双人沙发和模块化沙发的适用场景",
+                    dataUrl: "lesson-05-data.json",
+                    imageDir: "visuals/lesson05",
+                    audioDir: "audio/lesson05",
+                    sceneCount: 6,
+                },
+                {
+                    number: "06",
+                    titleZh: "介绍餐桌、椅子和配套餐厅家具",
+                    titleEn: "Dining Tables, Chairs, and Matching Sets",
+                    description: "练习餐桌形状、尺寸、餐椅舒适度和餐边柜搭配表达",
+                    dataUrl: "lesson-06-data.json",
+                    imageDir: "visuals/lesson06",
+                    audioDir: "audio/lesson06",
+                    sceneCount: 6,
+                },
+                {
+                    number: "07",
+                    titleZh: "卧室家具推荐",
+                    titleEn: "Bedroom Furniture Recommendations",
+                    description: "围绕床、床垫、衣柜、床头柜组成完整卧室方案",
+                    dataUrl: "lesson-07-data.json",
+                    imageDir: "visuals/lesson07",
+                    audioDir: "audio/lesson07",
+                    sceneCount: 6,
+                },
+                {
+                    number: "08",
+                    titleZh: "定制尺寸、颜色和材质",
+                    titleEn: "Custom Sizes, Colors, and Materials",
+                    description: "学习定制尺寸、贵妃方向、面料色卡、样品确认和交期沟通",
+                    dataUrl: "lesson-08-data.json",
+                    imageDir: "visuals/lesson08",
+                    audioDir: "audio/lesson08",
+                    sceneCount: 6,
+                },
             ];
 
             let currentLesson = LESSONS[0];
@@ -377,6 +564,25 @@
             let currentAudio = null;
             let allLines = [];
             let globalSpeed = 0.75;
+            let hasFinishedLesson = false;
+            let pendingResumeTime = 0;
+            let pendingResumeSceneIdx = null;
+            let pendingResumeLineIdx = null;
+            let loadedLessonDataUrl = null;
+            const lessonCache = new Map();
+            const PROGRESS_KEY = "wifenglish:last-progress";
+            const REVIEW_KEY_PREFIX = "wifenglish:review:";
+            const REVIEW_STATUSES = {
+                known: "认识",
+                unsure: "不熟",
+                favorite: "收藏",
+            };
+            let reviewLesson = LESSONS[0];
+            let reviewLessonData = null;
+            let reviewCards = [];
+            let reviewIdx = 0;
+            let reviewRevealed = false;
+            let reviewResults = {};
 
             function renderLessonGrid() {
                 const grid = document.getElementById("lesson-grid");
@@ -405,15 +611,23 @@
                         <div class="mt-4 text-xs text-[var(--text-tertiary)] leading-relaxed">
                             ${lesson.description}
                         </div>
+                        <div class="mt-4 flex items-center gap-2">
+                            <button onclick="event.stopPropagation(); enterPlayer(${idx})" class="control-btn primary">
+                                <i class="fa-solid fa-play"></i>
+                                <span>开始课程</span>
+                            </button>
+                            <button onclick="event.stopPropagation(); showReview(${idx})" class="control-btn">
+                                <i class="fa-solid fa-layer-group"></i>
+                                <span>复习卡片</span>
+                            </button>
+                        </div>
                     </div>
                 `).join("");
             }
 
             function setGlobalSpeed(speed) {
                 globalSpeed = speed;
-                if (currentAudio) {
-                    currentAudio.playbackRate = globalSpeed;
-                }
+                getAudioElement().playbackRate = globalSpeed;
                 document.querySelectorAll(".speed-btn").forEach((btn) => {
                     const active = parseFloat(btn.dataset.speed) === speed;
                     btn.classList.toggle("active", active);
@@ -424,6 +638,8 @@
                 document.getElementById("home-view").classList.remove("hidden");
                 const pv = document.getElementById("player-view");
                 pv.classList.add("hidden");
+                const rv = document.getElementById("review-view");
+                if (rv) rv.classList.add("hidden");
                 pv.style.height = '';
                 document.body.style.overflow = '';
 
@@ -433,15 +649,19 @@
                 stop();
             }
 
-            function enterPlayer(lessonIdx = 0) {
+            function enterPlayer(lessonIdx = 0, resumePosition = null) {
                 const nextLesson = LESSONS[lessonIdx] || LESSONS[0];
-                const lessonChanged = currentLesson !== nextLesson;
+                const lessonChanged =
+                    currentLesson !== nextLesson || loadedLessonDataUrl !== nextLesson.dataUrl;
                 currentLesson = nextLesson;
+                setPlayerHeader();
 
                 const container = document.getElementById("app-container");
                 if (container) container.classList.add("player-expanded");
 
                 document.getElementById("home-view").classList.add("hidden");
+                const rv = document.getElementById("review-view");
+                if (rv) rv.classList.add("hidden");
                 const pv = document.getElementById("player-view");
                 pv.classList.remove("hidden");
 
@@ -452,30 +672,113 @@
                     window.scrollTo({ top: 0, behavior: 'instant' });
                 }, 5);
 
+                if (lessonChanged) {
+                    stop();
+                }
+
                 if (!lessonData || !allLines.length || lessonChanged) {
-                    loadLesson().then(() => {
+                    if (lessonCache.has(currentLesson.dataUrl)) {
+                        applyLessonData(lessonCache.get(currentLesson.dataUrl));
                         renderSubtitleList();
-                        showScene(0, 0);
-                    });
+                        showScene(resumePosition?.sceneIdx || 0, resumePosition?.lineIdx || 0);
+                        startAutoPlay();
+                    } else {
+                        loadLesson().then(() => {
+                            if (resumePosition) {
+                                showScene(resumePosition.sceneIdx || 0, resumePosition.lineIdx || 0);
+                            }
+                            startAutoPlay();
+                        });
+                    }
                 } else {
                     const container = document.getElementById("subtitle-list");
                     if (container && container.children.length < 5) {
                         renderSubtitleList();
                     }
-                    showScene(0, 0);
+                    showScene(resumePosition?.sceneIdx || 0, resumePosition?.lineIdx || 0);
+                    startAutoPlay();
                 }
             }
 
-            async function loadLesson() {
+            function setPlayerHeader() {
                 const lessonNo = document.getElementById("player-lesson-number");
                 const lessonTitle = document.getElementById("player-lesson-title");
                 if (lessonNo) lessonNo.textContent = `LESSON ${currentLesson.number}`;
                 if (lessonTitle) lessonTitle.textContent = currentLesson.titleZh;
+                updatePlayerLessonControls();
+            }
 
-                const res = await fetch(currentLesson.dataUrl);
-                lessonData = await res.json();
+            function getLessonOptionHtml(selectedIdx) {
+                return LESSONS.map(
+                    (lesson, idx) =>
+                        `<option value="${idx}" ${idx === selectedIdx ? "selected" : ""}>${lesson.number} · ${escapeHtml(lesson.titleZh)}</option>`,
+                ).join("");
+            }
+
+            function updateLessonJumpControls(mode, lesson) {
+                const idx = getLessonIndex(lesson);
+                const prev = document.getElementById(`${mode}-prev-lesson`);
+                const next = document.getElementById(`${mode}-next-lesson`);
+                const select = document.getElementById(`${mode}-lesson-select`);
+
+                if (prev) prev.disabled = idx <= 0;
+                if (next) next.disabled = idx >= LESSONS.length - 1;
+                if (select) {
+                    select.innerHTML = getLessonOptionHtml(idx);
+                    select.value = String(idx);
+                }
+            }
+
+            function updatePlayerLessonControls() {
+                updateLessonJumpControls("player", currentLesson);
+            }
+
+            function handleLessonSelect(value, mode) {
+                const idx = Number(value);
+                if (!Number.isInteger(idx) || idx < 0 || idx >= LESSONS.length) return;
+                if (mode === "review") {
+                    showReview(idx);
+                    return;
+                }
+                enterPlayer(idx);
+            }
+
+            function goToRelativeLesson(delta, mode) {
+                const baseLesson = mode === "review" ? reviewLesson : currentLesson;
+                const nextIdx = getLessonIndex(baseLesson) + delta;
+                if (nextIdx < 0 || nextIdx >= LESSONS.length) return;
+                if (mode === "review") {
+                    showReview(nextIdx);
+                    return;
+                }
+                enterPlayer(nextIdx);
+            }
+
+            async function loadLesson() {
+                setPlayerHeader();
+                const data = await fetchLessonData(currentLesson);
+                applyLessonData(data);
+                renderSubtitleList();
+                showScene(0, 0);
+            }
+
+            async function fetchLessonData(lesson) {
+                if (lessonCache.has(lesson.dataUrl)) {
+                    return lessonCache.get(lesson.dataUrl);
+                }
+
+                const res = await fetch(lesson.dataUrl);
+                const data = await res.json();
+                lessonCache.set(lesson.dataUrl, data);
+                return data;
+            }
+
+            function applyLessonData(data) {
+                lessonData = data;
+                loadedLessonDataUrl = currentLesson.dataUrl;
                 currentSceneIdx = 0;
                 currentLineIdx = 0;
+                hasFinishedLesson = false;
 
                 allLines = [];
                 lessonData.scenes.forEach((scene, sIdx) => {
@@ -488,9 +791,367 @@
                         });
                     });
                 });
+            }
 
-                renderSubtitleList();
-                showScene(0, 0);
+            function escapeHtml(value) {
+                return String(value ?? "")
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#039;");
+            }
+
+            function getReviewKey(lesson = reviewLesson) {
+                return `${REVIEW_KEY_PREFIX}${lesson.number}`;
+            }
+
+            function loadReviewResults(lesson = reviewLesson) {
+                try {
+                    return JSON.parse(localStorage.getItem(getReviewKey(lesson)) || "{}") || {};
+                } catch (e) {
+                    return {};
+                }
+            }
+
+            function saveReviewResults() {
+                localStorage.setItem(getReviewKey(), JSON.stringify(reviewResults));
+            }
+
+            function getReviewCounts(results = reviewResults) {
+                return Object.values(results).reduce(
+                    (counts, item) => {
+                        if (item?.status === "known") counts.known += 1;
+                        if (item?.status === "unsure") counts.unsure += 1;
+                        if (item?.status === "favorite") counts.favorite += 1;
+                        return counts;
+                    },
+                    { known: 0, unsure: 0, favorite: 0 },
+                );
+            }
+
+            function makeReviewCards(data) {
+                const cards = [];
+                const vocabSeen = new Set();
+
+                data.scenes.forEach((scene, sIdx) => {
+                    scene.lines.forEach((line, lIdx) => {
+                        const lineId = `${sIdx + 1}-${lIdx + 1}`;
+                        (line.vocab || []).forEach((term) => {
+                            const normalized = term.trim().toLowerCase();
+                            if (!normalized || vocabSeen.has(normalized)) return;
+                            vocabSeen.add(normalized);
+                            cards.push({
+                                id: `vocab-${normalized}`,
+                                type: "词汇卡",
+                                prompt: term,
+                                hint: "英文短语 → 中文含义/例句",
+                                answer: line.zh,
+                                example: line.en,
+                                sceneTitle: `${scene.title_en} / ${scene.title_zh}`,
+                            });
+                        });
+
+                        cards.push({
+                            id: `sentence-${lineId}`,
+                            type: "句型卡",
+                            prompt: line.zh,
+                            hint: "中文提示 → 英文原句",
+                            answer: line.en,
+                            example: `${line.speaker} · ${scene.title_zh}`,
+                            sceneTitle: `${scene.title_en} / ${scene.title_zh}`,
+                        });
+                    });
+
+                    const salesLine = scene.lines.find((line) => line.role === "sales") || scene.lines[0];
+                    const customerLine =
+                        scene.lines.find((line) => line.role === "customer") || scene.lines[1] || scene.lines[0];
+                    [salesLine, customerLine].filter(Boolean).forEach((line, idx) => {
+                        const role = line.role === "sales" ? "销售" : "顾客";
+                        cards.push({
+                            id: `scene-${sIdx + 1}-${idx}`,
+                            type: "场景卡",
+                            prompt: `${scene.title_zh}：${role}适合说哪句话？`,
+                            hint: "销售/顾客场景 → 适合说哪句话",
+                            answer: line.en,
+                            example: line.zh,
+                            sceneTitle: `${scene.title_en} / ${scene.title_zh}`,
+                        });
+                    });
+                });
+
+                return cards;
+            }
+
+            async function showReview(lessonIdx = getLessonIndex()) {
+                stop();
+                reviewLesson = LESSONS[lessonIdx] || LESSONS[0];
+                reviewLessonData = await fetchLessonData(reviewLesson);
+                reviewCards = makeReviewCards(reviewLessonData);
+                reviewIdx = 0;
+                reviewRevealed = false;
+                reviewResults = loadReviewResults(reviewLesson);
+
+                currentLesson = reviewLesson;
+                document.getElementById("home-view").classList.add("hidden");
+                document.getElementById("player-view").classList.add("hidden");
+                document.getElementById("review-view").classList.remove("hidden");
+                document.body.style.overflow = "hidden";
+
+                const container = document.getElementById("app-container");
+                if (container) container.classList.add("player-expanded");
+                renderReviewCard();
+            }
+
+            function renderReviewCard() {
+                const lessonNo = document.getElementById("review-lesson-number");
+                const lessonTitle = document.getElementById("review-lesson-title");
+                const cardTitle = document.getElementById("review-card-title");
+                const progress = document.getElementById("review-progress");
+                const cardEl = document.getElementById("review-card");
+                if (!cardEl) return;
+
+                if (lessonNo) lessonNo.textContent = `LESSON ${reviewLesson.number}`;
+                if (lessonTitle) lessonTitle.textContent = `${reviewLesson.titleZh} · 课后复习`;
+                if (cardTitle) cardTitle.textContent = reviewLesson.titleZh;
+                updateLessonJumpControls("review", reviewLesson);
+
+                if (!reviewCards.length) {
+                    if (progress) progress.textContent = "";
+                    cardEl.innerHTML = `
+                        <div class="text-sm text-[var(--text-secondary)]">当前课程还没有可复习的卡片。</div>
+                        <div class="review-study-actions">
+                            <button onclick="enterPlayer(${getLessonIndex(reviewLesson)})" class="control-btn primary">
+                                <i class="fa-solid fa-play"></i>
+                                <span>回到课程</span>
+                            </button>
+                        </div>
+                    `;
+                    renderReviewControls();
+                    return;
+                }
+
+                if (reviewIdx >= reviewCards.length) {
+                    renderReviewSummary();
+                    return;
+                }
+
+                const card = reviewCards[reviewIdx];
+                const saved = reviewResults[card.id]?.status;
+                if (progress) progress.textContent = `${reviewIdx + 1} / ${reviewCards.length}`;
+                const answer = reviewRevealed
+                    ? `
+                        <div class="mt-5 border-t border-[var(--border)] pt-5">
+                            <div class="text-xs text-[var(--text-tertiary)] mb-2">答案</div>
+                            <div class="text-xl font-semibold leading-snug">${escapeHtml(card.answer)}</div>
+                            <div class="text-sm text-[var(--text-secondary)] leading-relaxed mt-3">${escapeHtml(card.example)}</div>
+                        </div>
+                    `
+                    : "";
+                const actions = Object.entries(REVIEW_STATUSES)
+                    .map(([status, label]) => {
+                        const icon =
+                            status === "known"
+                                ? "fa-check"
+                                : status === "unsure"
+                                  ? "fa-rotate-right"
+                                  : "fa-star";
+                        return `
+                            <button onclick="markReviewCard('${status}')" class="control-btn review-action ${saved === status ? "active" : ""}">
+                                <i class="fa-solid ${icon}"></i>
+                                <span>${label}</span>
+                            </button>
+                        `;
+                    })
+                    .join("");
+
+                cardEl.innerHTML = `
+                    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4">
+                        <div>
+                            <div class="text-xs text-[var(--text-tertiary)] tracking-wide">${escapeHtml(card.type)}</div>
+                            <div class="text-sm text-[var(--text-secondary)] mt-1">${escapeHtml(card.hint)}</div>
+                        </div>
+                        <div class="text-xs text-[var(--text-tertiary)] sm:text-right break-words">${escapeHtml(card.sceneTitle)}</div>
+                    </div>
+                    <div class="mt-8 text-2xl md:text-3xl font-semibold leading-snug break-words">${escapeHtml(card.prompt)}</div>
+                    ${answer}
+                    <div class="review-study-actions">
+                        <button onclick="toggleReviewAnswer()" class="control-btn primary">
+                            <i class="fa-solid ${reviewRevealed ? "fa-eye-slash" : "fa-eye"}"></i>
+                            <span>${reviewRevealed ? "隐藏答案" : "显示答案"}</span>
+                        </button>
+                        ${actions}
+                        <button onclick="skipReviewCard()" class="control-btn">
+                            <i class="fa-solid fa-arrow-right"></i>
+                            <span>下一张</span>
+                        </button>
+                    </div>
+                `;
+                renderReviewControls();
+            }
+
+            function renderReviewSummary() {
+                const progress = document.getElementById("review-progress");
+                const cardEl = document.getElementById("review-card");
+                const counts = getReviewCounts();
+                if (progress) progress.textContent = "完成";
+                cardEl.innerHTML = `
+                    <div class="text-xs text-[var(--text-tertiary)] tracking-wide">本课复习结果</div>
+                    <div class="mt-3 text-2xl font-semibold">已完成 ${reviewCards.length} 张卡片</div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-6">
+                        <div class="border border-[var(--border)] rounded-lg p-4">
+                            <div class="text-2xl font-semibold">${counts.known}</div>
+                            <div class="text-sm text-[var(--text-secondary)] mt-1">掌握数</div>
+                        </div>
+                        <div class="border border-[var(--border)] rounded-lg p-4">
+                            <div class="text-2xl font-semibold">${counts.unsure}</div>
+                            <div class="text-sm text-[var(--text-secondary)] mt-1">不熟数</div>
+                        </div>
+                        <div class="border border-[var(--border)] rounded-lg p-4">
+                            <div class="text-2xl font-semibold">${counts.favorite}</div>
+                            <div class="text-sm text-[var(--text-secondary)] mt-1">收藏数</div>
+                        </div>
+                    </div>
+                    <div class="review-study-actions">
+                        <button onclick="restartReview()" class="control-btn primary">
+                            <i class="fa-solid fa-rotate-left"></i>
+                            <span>再复习一轮</span>
+                        </button>
+                        <button onclick="enterPlayer(${getLessonIndex(reviewLesson)})" class="control-btn">
+                            <i class="fa-solid fa-play"></i>
+                            <span>回到课程</span>
+                        </button>
+                    </div>
+                `;
+                renderReviewControls();
+            }
+
+            function renderReviewControls() {
+                const toolbar = document.getElementById("review-bottom-toolbar");
+                if (!toolbar) return;
+
+                toolbar.innerHTML = `
+                    <div class="toolbar-group">
+                        <button onclick="showHome()" class="control-btn" title="返回课程列表">
+                            <i class="fa-solid fa-arrow-left"></i>
+                            <span class="hidden sm:inline">课程列表</span>
+                        </button>
+                        <button onclick="toggleTheme()" class="control-btn" title="切换主题">
+                            <i class="fa-solid fa-sun theme-icon"></i>
+                        </button>
+                    </div>
+
+                    <div class="toolbar-divider"></div>
+
+                    <div class="toolbar-group">
+                        <button id="review-prev-lesson" onclick="goToRelativeLesson(-1, 'review')" class="control-btn" title="上一课">
+                            <i class="fa-solid fa-chevron-left"></i>
+                            <span class="hidden sm:inline">上一课</span>
+                        </button>
+                        <select
+                            id="review-lesson-select"
+                            class="lesson-select"
+                            onchange="handleLessonSelect(this.value, 'review')"
+                            title="选择课程"
+                        ></select>
+                        <button id="review-next-lesson" onclick="goToRelativeLesson(1, 'review')" class="control-btn" title="下一课">
+                            <span class="hidden sm:inline">下一课</span>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                `;
+                updateLessonJumpControls("review", reviewLesson);
+            }
+
+            function toggleReviewAnswer() {
+                reviewRevealed = !reviewRevealed;
+                renderReviewCard();
+            }
+
+            function markReviewCard(status) {
+                const card = reviewCards[reviewIdx];
+                if (!card) return;
+                reviewResults[card.id] = {
+                    status,
+                    updatedAt: new Date().toISOString(),
+                };
+                saveReviewResults();
+                reviewIdx += 1;
+                reviewRevealed = false;
+                renderReviewCard();
+            }
+
+            function skipReviewCard() {
+                reviewIdx += 1;
+                reviewRevealed = false;
+                renderReviewCard();
+            }
+
+            function restartReview() {
+                reviewIdx = 0;
+                reviewRevealed = false;
+                renderReviewCard();
+            }
+
+            function startCurrentLessonReview() {
+                showReview(getLessonIndex(currentLesson));
+            }
+
+            function getAudioElement() {
+                if (!currentAudio) {
+                    currentAudio = document.getElementById("lesson-audio");
+                }
+                return currentAudio;
+            }
+
+            function getLineAudioSrc(sceneIdx = currentSceneIdx, lineIdx = currentLineIdx) {
+                const scene = lessonData?.scenes?.[sceneIdx];
+                if (!scene) return "";
+                return `${currentLesson.audioDir}/scene${String(scene.id).padStart(2, "0")}_line${lineIdx.toString().padStart(2, "0")}.mp3`;
+            }
+
+            function getLessonIndex(lesson = currentLesson) {
+                return Math.max(
+                    0,
+                    LESSONS.findIndex((item) => item.dataUrl === lesson.dataUrl),
+                );
+            }
+
+            function loadProgress() {
+                try {
+                    const saved = JSON.parse(localStorage.getItem(PROGRESS_KEY) || "null");
+                    if (!saved || !LESSONS[saved.lessonIdx]) return null;
+                    return {
+                        lessonIdx: saved.lessonIdx,
+                        sceneIdx: Math.max(0, Number(saved.sceneIdx) || 0),
+                        lineIdx: Math.max(0, Number(saved.lineIdx) || 0),
+                        audioTime: Math.max(0, Number(saved.audioTime) || 0),
+                        finished: Boolean(saved.finished),
+                    };
+                } catch (e) {
+                    return null;
+                }
+            }
+
+            function saveProgress(finished = hasFinishedLesson) {
+                if (!lessonData?.scenes?.length) return;
+                const audio = getAudioElement();
+                const audioTime =
+                    !finished && audio.src && !Number.isNaN(audio.currentTime)
+                        ? Math.max(0, Math.floor(audio.currentTime * 10) / 10)
+                        : 0;
+                localStorage.setItem(
+                    PROGRESS_KEY,
+                    JSON.stringify({
+                        lessonIdx: getLessonIndex(),
+                        lessonNumber: currentLesson.number,
+                        sceneIdx: currentSceneIdx,
+                        lineIdx: currentLineIdx,
+                        audioTime,
+                        finished,
+                        updatedAt: new Date().toISOString(),
+                    }),
+                );
             }
 
             function renderSubtitleList() {
@@ -518,7 +1179,7 @@
 
                         const en = highlightVocab(line.en, line.vocab || []);
                         const zh = highlightZhVocab(line.zh, line.vocab || []);
-                        const avatarLabel = isSales ? "李" : "张";
+                        const avatarLabel = getSpeakerAvatar(line);
 
                         div.innerHTML = `
                             <div class="avatar">${avatarLabel}</div>
@@ -532,7 +1193,7 @@
                         div.onclick = () => {
                             stop();
                             showScene(sIdx, lIdx);
-                            playCurrentLine();
+                            startAutoPlay();
                         };
 
                         container.appendChild(div);
@@ -589,12 +1250,22 @@
                 return result;
             }
 
-            function setSceneImage(sceneId) {
+            function getSpeakerAvatar(line) {
+                const speaker = line?.speaker || "";
+                if (speaker.includes("李") || /li\s*wei/i.test(speaker)) return "李";
+                if (speaker.includes("张") || /zhang/i.test(speaker)) return "张";
+                if (line?.role === "sales") return "售";
+                if (line?.role === "customer" || /customer/i.test(speaker)) return "客";
+                return speaker.trim().slice(0, 1).toUpperCase() || "?";
+            }
+
+            function setSceneImage(scene) {
                 const img = document.getElementById("scene-image");
                 if (!img) return;
 
+                const sceneId = scene?.id || currentSceneIdx + 1;
                 const sceneName = `scene-${String(sceneId).padStart(2, "0")}.jpg`;
-                const primary = `${currentLesson.imageDir}/${sceneName}`;
+                const primary = scene?.image || `${currentLesson.imageDir}/${sceneName}`;
                 const fallback = `visuals/${sceneName}`;
                 const placeholder = `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
@@ -623,29 +1294,15 @@
 
                 currentSceneIdx = sceneIdx;
                 currentLineIdx = lineIdx;
+                hasFinishedLesson = false;
 
-                setSceneImage(scene.id);
+                setSceneImage(scene);
 
                 const line = scene.lines[lineIdx];
-                if (line) {
-                    const isSales =
-                        line.role === "sales" ||
-                        line.speaker.includes("Li") ||
-                        line.speaker.includes("李");
-
-                    const speakerEl = document.getElementById("current-speaker");
-                    const enEl = document.getElementById("current-en");
-                    const zhEl = document.getElementById("current-zh");
-                    const avatarEl = document.getElementById("current-avatar");
-
-                    speakerEl.textContent = line.speaker;
-                    enEl.innerHTML = highlightVocab(line.en, line.vocab || []);
-                    zhEl.innerHTML = highlightZhVocab(line.zh, line.vocab || []);
-
-                    avatarEl.textContent = isSales ? "李" : "张";
-                }
+                if (!line) return;
 
                 highlightSubtitleLine(sceneIdx, lineIdx);
+                saveProgress(false);
             }
 
             function highlightSubtitleLine(sceneIdx, lineIdx) {
@@ -676,21 +1333,41 @@
                 const line = scene.lines[currentLineIdx];
                 if (!line) return;
 
-                const fname = `${currentLesson.audioDir}/scene${String(scene.id).padStart(2, "0")}_line${currentLineIdx.toString().padStart(2, "0")}.mp3`;
-
-                currentAudio = new Audio(fname);
-                currentAudio.playbackRate = globalSpeed;
-                currentAudio.onended = () => {
+                const audio = getAudioElement();
+                const resumeTime =
+                    pendingResumeSceneIdx === currentSceneIdx && pendingResumeLineIdx === currentLineIdx
+                        ? pendingResumeTime
+                        : 0;
+                audio.src = getLineAudioSrc();
+                audio.playbackRate = globalSpeed;
+                audio.onloadedmetadata = () => {
+                    if (resumeTime > 0 && resumeTime < audio.duration - 0.25) {
+                        audio.currentTime = resumeTime;
+                    }
+                };
+                audio.onended = () => {
                     if (!isPlaying) return;
                     advanceToNext();
                 };
+                audio.onerror = () => {
+                    console.warn("Audio failed to load", audio.src);
+                    if (isPlaying) advanceToNext();
+                };
 
-                currentAudio.play().catch((e) => {
-                    console.warn("Audio play failed", e);
-                    setTimeout(() => {
-                        if (isPlaying) advanceToNext();
-                    }, 1200);
-                });
+                audio
+                    .play()
+                    .then(() => {
+                        pendingResumeTime = 0;
+                        pendingResumeSceneIdx = null;
+                        pendingResumeLineIdx = null;
+                    })
+                    .catch((e) => {
+                        if (e?.name !== "NotAllowedError") {
+                            console.warn("Audio play failed", e);
+                        }
+                        isPlaying = false;
+                        updatePlayPauseButton(false);
+                    });
 
                 showScene(currentSceneIdx, currentLineIdx);
             }
@@ -720,21 +1397,23 @@
 
             function finishLesson() {
                 isPlaying = false;
+                hasFinishedLesson = true;
+                stopAudio();
+                saveProgress(true);
                 updatePlayPauseButton(false);
                 const text = document.getElementById("play-pause-text");
                 if (text) text.textContent = "重新播放";
-
-                const enEl = document.getElementById("current-en");
-                const zhEl = document.getElementById("current-zh");
-                if (enEl) enEl.innerHTML = "课程完成！Great job!";
-                if (zhEl) zhEl.innerHTML = "恭喜你完成本课练习！";
+                const reviewText = document.getElementById("review-current-text");
+                if (reviewText) reviewText.textContent = "开始复习";
             }
 
             function stopAudio() {
-                if (currentAudio) {
-                    currentAudio.pause();
-                    currentAudio = null;
-                }
+                const audio = getAudioElement();
+                audio.pause();
+                saveProgress();
+                audio.onended = null;
+                audio.onerror = null;
+                audio.onloadedmetadata = null;
             }
 
             function togglePlayPause() {
@@ -752,13 +1431,13 @@
             }
 
             function startAutoPlay() {
+                if (!lessonData?.scenes?.length) return;
                 isPlaying = true;
                 updatePlayPauseButton(true);
+                const reviewText = document.getElementById("review-current-text");
+                if (reviewText) reviewText.textContent = "复习";
 
-                if (
-                    currentSceneIdx === lessonData.scenes.length - 1 &&
-                    currentLineIdx === lessonData.scenes.at(-1).lines.length - 1
-                ) {
+                if (hasFinishedLesson) {
                     showScene(0, 0);
                 }
 
@@ -775,15 +1454,24 @@
                     text.textContent = "暂停";
                 } else {
                     icon.className = "fa-solid fa-play";
-                    const atEnd =
-                        currentSceneIdx === lessonData.scenes.length - 1 &&
-                        currentLineIdx === lessonData.scenes.at(-1).lines.length - 1;
-                    text.textContent = atEnd ? "重新播放" : "播放";
+                    if (!lessonData?.scenes?.length) {
+                        text.textContent = "播放";
+                        return;
+                    }
+                    text.textContent = hasFinishedLesson ? "重新播放" : "播放";
                 }
             }
 
             function setupControls() {
                 document.addEventListener("keydown", (e) => {
+                    const reviewVisible = !document.getElementById("review-view")?.classList.contains("hidden");
+                    if (reviewVisible) {
+                        if (e.key === " " || e.key === "k") {
+                            e.preventDefault();
+                            toggleReviewAnswer();
+                        }
+                        return;
+                    }
                     if (e.key === " " || e.key === "k") {
                         e.preventDefault();
                         if (isPlaying) {
@@ -797,6 +1485,7 @@
                         showScene(0, 0);
                     }
                 });
+                window.addEventListener("beforeunload", () => saveProgress());
             }
 
             async function init() {
@@ -807,32 +1496,40 @@
 
                 renderLessonGrid();
                 setupControls();
+                initTheme();
 
                 try {
-                    const res = await fetch(currentLesson.dataUrl);
-                    lessonData = await res.json();
-                    allLines = [];
-                    lessonData.scenes.forEach((scene, sIdx) => {
-                        scene.lines.forEach((line, lIdx) => {
-                            allLines.push({
-                                sceneIdx: sIdx,
-                                lineIdx: lIdx,
-                                ...line,
-                                scene,
-                            });
+                    const savedProgress = loadProgress();
+                    const startLessonIdx = savedProgress?.lessonIdx || 0;
+                    currentLesson = LESSONS[startLessonIdx] || LESSONS[0];
+                    await loadLesson();
+                    pendingResumeTime = savedProgress?.audioTime || 0;
+                    pendingResumeSceneIdx = savedProgress?.sceneIdx ?? null;
+                    pendingResumeLineIdx = savedProgress?.lineIdx ?? null;
+                    LESSONS.slice(1).forEach((lesson) => {
+                        fetchLessonData(lesson).catch((e) => {
+                            console.warn("Lesson preload failed", lesson.dataUrl, e);
                         });
                     });
-                } catch (e) {}
+                } catch (e) {
+                    console.warn("Initial lesson load failed", e);
+                }
 
                 setTimeout(() => {
                     setGlobalSpeed(globalSpeed);
                 }, 50);
-
-                initTheme();
             }
 
             window.enterPlayer = enterPlayer;
             window.showHome = showHome;
+            window.showReview = showReview;
+            window.startCurrentLessonReview = startCurrentLessonReview;
+            window.handleLessonSelect = handleLessonSelect;
+            window.goToRelativeLesson = goToRelativeLesson;
+            window.toggleReviewAnswer = toggleReviewAnswer;
+            window.markReviewCard = markReviewCard;
+            window.skipReviewCard = skipReviewCard;
+            window.restartReview = restartReview;
             window.restartLesson = function () {
                 stop();
                 showScene(0, 0);

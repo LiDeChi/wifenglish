@@ -29,6 +29,7 @@ API_BASE = "https://api.boson.ai/v1"
 SPEECH_URL = f"{API_BASE}/audio/speech"
 VOICES_URL = f"{API_BASE}/audio/voices"
 MODEL = "higgs-tts-3"
+DEFAULT_MANIFEST = Path("scripts/lesson_audio_manifest.json")
 
 load_local_env()
 
@@ -66,6 +67,31 @@ def load_voice_cache() -> dict:
     if VOICE_CACHE.exists():
         return json.loads(VOICE_CACHE.read_text(encoding="utf-8"))
     return {}
+
+
+def load_manifest(path: Path = DEFAULT_MANIFEST) -> list[dict]:
+    if not path.exists():
+        raise FileNotFoundError(f"Lesson audio manifest not found: {path}")
+
+    data = json.loads(path.read_text(encoding="utf-8"))
+    lessons = data.get("lessons", [])
+    if not lessons:
+        raise RuntimeError(f"No lessons configured in {path}")
+
+    return lessons
+
+
+def select_manifest_lessons(manifest_path: Path, lesson_number: str | None, all_lessons: bool) -> list[dict]:
+    lessons = load_manifest(manifest_path)
+    if all_lessons:
+        return lessons
+    if lesson_number:
+        lesson_number = lesson_number.zfill(2)
+        selected = [lesson for lesson in lessons if lesson.get("number") == lesson_number]
+        if not selected:
+            raise RuntimeError(f"Lesson {lesson_number} is not configured in {manifest_path}")
+        return selected
+    return []
 
 
 def save_voice_cache(cache: dict) -> None:
@@ -226,6 +252,29 @@ def sync_to_web(output_dir: Path, web_output_dir: Path, data: dict) -> None:
         print(f"  Synced: {target}")
 
 
+def verify_web_sync(lesson_path: str, output_dir: Path, web_output_dir: Path) -> bool:
+    data = json.loads(Path(lesson_path).read_text(encoding="utf-8"))
+    ok = True
+
+    for path in expected_audio_files(data, output_dir):
+        target = web_output_dir / path.name
+        if not path.exists():
+            print(f"Missing source: {path}")
+            ok = False
+            continue
+        if not target.exists():
+            print(f"Missing web copy: {target}")
+            ok = False
+            continue
+        if path.read_bytes() != target.read_bytes():
+            print(f"Web copy differs: {path} -> {target}")
+            ok = False
+
+    if ok:
+        print(f"Verified web sync: {output_dir} -> {web_output_dir}")
+    return ok
+
+
 def generate(
     lesson_path: str,
     output_dir: Path,
@@ -292,6 +341,13 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Generate lesson audios with consistent voices.")
     parser.add_argument("--lesson", default="lesson-data.json", help="Input lesson JSON file")
     parser.add_argument("--output-dir", default="audio/lesson01", help="Output audio directory")
+    parser.add_argument(
+        "--manifest",
+        default=str(DEFAULT_MANIFEST),
+        help="Lesson audio manifest used by --lesson-number, --all, and --verify-web",
+    )
+    parser.add_argument("--lesson-number", help="Generate/status/verify one configured lesson, e.g. 01")
+    parser.add_argument("--all", action="store_true", help="Generate/status/verify all configured lessons")
     parser.add_argument("--force", action="store_true", help="Regenerate existing files")
     parser.add_argument(
         "--allow-ref-fallback",
@@ -303,10 +359,57 @@ def main() -> None:
         help="Copy generated lesson audio files to a web audio directory after generation.",
     )
     parser.add_argument("--status", action="store_true", help="Report expected/existing audio files and exit")
+    parser.add_argument(
+        "--verify-web",
+        action="store_true",
+        help="Verify generated audio files match their web/audio copies and exit",
+    )
     args = parser.parse_args()
+
+    selected_lessons = select_manifest_lessons(Path(args.manifest), args.lesson_number, args.all)
+    if selected_lessons:
+        if args.status:
+            for lesson in selected_lessons:
+                print(f"\n=== Lesson {lesson['number']} ===")
+                print_audio_status(lesson["lesson"], Path(lesson["output_dir"]))
+            return
+
+        if args.verify_web:
+            ok = True
+            for lesson in selected_lessons:
+                print(f"\n=== Lesson {lesson['number']} ===")
+                ok = (
+                    verify_web_sync(
+                        lesson["lesson"],
+                        Path(lesson["output_dir"]),
+                        Path(lesson["web_output_dir"]),
+                    )
+                    and ok
+                )
+            if not ok:
+                raise SystemExit(1)
+            return
+
+        for lesson in selected_lessons:
+            print(f"\n=== Lesson {lesson['number']} ===")
+            generate(
+                lesson["lesson"],
+                Path(lesson["output_dir"]),
+                force=args.force,
+                allow_ref_fallback=args.allow_ref_fallback,
+                sync_web_dir=Path(lesson["web_output_dir"]),
+            )
+        return
 
     if args.status:
         print_audio_status(args.lesson, Path(args.output_dir))
+        return
+
+    if args.verify_web:
+        if not args.sync_web_dir:
+            raise RuntimeError("--verify-web with --lesson requires --sync-web-dir")
+        if not verify_web_sync(args.lesson, Path(args.output_dir), Path(args.sync_web_dir)):
+            raise SystemExit(1)
         return
 
     generate(

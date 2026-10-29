@@ -1,0 +1,203 @@
+{
+  "lesson_id": "compare-sofa-styles-05",
+  "title_en": "Comparing Different Sofa Styles",
+  "title_zh": "比较不同沙发款式",
+  "description": "Mr. Zhang compares sectional, recliner, loveseat, and modular sofa styles before choosing a direction.",
+  "visual_style": "See style-guide.md for full consistency rules",
+  "scenes": [
+    {
+      "id": 1,
+      "image": "visuals/lesson05/scene-01.jpg",
+      "title_en": "Starting with Style Needs",
+      "title_zh": "确认款式需求",
+      "description": "Li Wei asks what kind of sofa style Mr. Zhang prefers.",
+      "lines": [
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Today we can compare several sofa styles side by side.",
+          "zh": "今天我们可以把几种沙发款式放在一起比较。",
+          "vocab": ["compare", "sofa styles", "side by side"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Great. I want something modern, but still comfortable for family use.",
+          "zh": "很好。我想要现代一点，但家人使用也要舒服。",
+          "vocab": ["modern", "comfortable", "family use"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Then we should look at a sectional sofa, a recliner sofa, and a loveseat.",
+          "zh": "那我们应该看看组合沙发、功能沙发和双人沙发。",
+          "vocab": ["sectional sofa", "recliner sofa", "loveseat"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "image": "visuals/lesson05/scene-02.jpg",
+      "title_en": "The Sectional Sofa",
+      "title_zh": "组合沙发",
+      "description": "Li Wei presents a large sectional sofa for a family living room.",
+      "lines": [
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "This L-shaped sectional gives you more seats and a relaxed corner.",
+          "zh": "这款L形组合沙发座位更多，还有一个放松的转角位。",
+          "vocab": ["L-shaped", "more seats", "corner"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "It looks spacious. Would it make my living room feel crowded?",
+          "zh": "看起来很宽敞。会不会让我的客厅显得拥挤？",
+          "vocab": ["spacious", "crowded"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "If your wall is over three meters wide, this layout should work well.",
+          "zh": "如果您的墙面超过三米宽，这个布局应该很合适。",
+          "vocab": ["layout", "work well"]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "image": "visuals/lesson05/scene-03.jpg",
+      "title_en": "The Recliner Sofa",
+      "title_zh": "功能沙发",
+      "description": "They test a sofa with reclining seats and footrests.",
+      "lines": [
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "What is special about this recliner sofa?",
+          "zh": "这款功能沙发有什么特别的地方？",
+          "vocab": ["special", "recliner sofa"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "The backrest can lean back, and the footrest comes up smoothly.",
+          "zh": "靠背可以向后倾，脚托也能顺滑升起。",
+          "vocab": ["backrest", "lean back", "footrest"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "This is comfortable for watching movies, but it may need more space.",
+          "zh": "看电影会很舒服，但可能需要更多空间。",
+          "vocab": ["watching movies", "need more space"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Yes, please leave at least twenty centimeters behind it.",
+          "zh": "是的，请在后面至少留二十厘米空间。",
+          "vocab": ["at least", "behind"]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "image": "visuals/lesson05/scene-04.jpg",
+      "title_en": "The Loveseat",
+      "title_zh": "双人沙发",
+      "description": "Li Wei shows a compact loveseat for small apartments.",
+      "lines": [
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "This loveseat is smaller and easier to move into an apartment.",
+          "zh": "这款双人沙发更小，更容易搬进公寓。",
+          "vocab": ["loveseat", "smaller", "move into"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "It is practical, but I may need extra seats for guests.",
+          "zh": "它很实用，但我可能需要给客人多准备座位。",
+          "vocab": ["practical", "extra seats", "guests"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "You can pair it with two armchairs to keep the room flexible.",
+          "zh": "您可以搭配两把单人椅，让房间更灵活。",
+          "vocab": ["pair with", "armchairs", "flexible"]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "image": "visuals/lesson05/scene-05.jpg",
+      "title_en": "The Modular Option",
+      "title_zh": "模块化选择",
+      "description": "They discuss a modular sofa that can be rearranged.",
+      "lines": [
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Can this modular sofa be rearranged later?",
+          "zh": "这款模块化沙发以后可以重新组合吗？",
+          "vocab": ["modular sofa", "rearranged"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Yes. Each module can be moved, so you can change the layout.",
+          "zh": "可以。每个模块都能移动，所以您可以改变布局。",
+          "vocab": ["module", "change the layout"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "That is useful if I move to a bigger home later.",
+          "zh": "如果以后搬到更大的房子，这会很有用。",
+          "vocab": ["useful", "bigger home"]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "image": "visuals/lesson05/scene-06.jpg",
+      "title_en": "Choosing a Direction",
+      "title_zh": "确定方向",
+      "description": "Mr. Zhang narrows the choice to two sofa styles.",
+      "lines": [
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Which style feels closest to what you need?",
+          "zh": "哪种款式最接近您的需求？",
+          "vocab": ["closest", "what you need"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "I prefer the sectional sofa, but I also like the modular design.",
+          "zh": "我更喜欢组合沙发，但也喜欢模块化设计。",
+          "vocab": ["prefer", "modular design"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Good. Next we can compare the materials and colors for those two options.",
+          "zh": "好的。接下来我们可以比较这两个选择的材质和颜色。",
+          "vocab": ["materials", "colors", "options"]
+        }
+      ]
+    }
+  ],
+  "key_vocab_summary": [
+    "compare", "sofa styles", "side by side", "modern", "family use",
+    "sectional sofa", "recliner sofa", "loveseat", "L-shaped", "spacious",
+    "layout", "backrest", "footrest", "at least", "practical", "extra seats",
+    "pair with", "modular sofa", "rearranged", "change the layout", "prefer",
+    "materials", "colors", "options"
+  ]
+}

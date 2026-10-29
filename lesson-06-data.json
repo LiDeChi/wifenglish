@@ -1,0 +1,203 @@
+{
+  "lesson_id": "dining-room-furniture-06",
+  "title_en": "Dining Tables, Chairs, and Matching Sets",
+  "title_zh": "介绍餐桌、椅子和配套餐厅家具",
+  "description": "Li Wei introduces dining table sizes, chair comfort, materials, and matching storage furniture.",
+  "visual_style": "See style-guide.md for full consistency rules",
+  "scenes": [
+    {
+      "id": 1,
+      "image": "visuals/lesson06/scene-01.jpg",
+      "title_en": "Entering the Dining Area",
+      "title_zh": "进入餐厅家具区",
+      "description": "Li Wei brings Mr. Zhang to the dining furniture section.",
+      "lines": [
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "This is our dining room section. We have tables, chairs, and matching cabinets.",
+          "zh": "这是我们的餐厅家具区。我们有餐桌、餐椅和配套餐边柜。",
+          "vocab": ["dining room", "matching cabinets"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "I need a set for six people, but my dining area is not very large.",
+          "zh": "我需要一套餐六人的，但我的餐厅区域不是很大。",
+          "vocab": ["set for six", "dining area"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Then we should focus on space-saving designs.",
+          "zh": "那我们应该重点看节省空间的设计。",
+          "vocab": ["space-saving", "designs"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "image": "visuals/lesson06/scene-02.jpg",
+      "title_en": "Choosing Table Shape",
+      "title_zh": "选择餐桌形状",
+      "description": "They compare rectangular and round dining tables.",
+      "lines": [
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Which is better, a rectangular table or a round table?",
+          "zh": "长方形餐桌和圆形餐桌，哪种更好？",
+          "vocab": ["rectangular table", "round table"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "A rectangular table fits against a wall, while a round table feels more social.",
+          "zh": "长方形餐桌适合靠墙摆放，而圆桌更有交流感。",
+          "vocab": ["fits against a wall", "social"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "My family likes talking during dinner, so a round table sounds nice.",
+          "zh": "我家人喜欢吃饭时聊天，所以圆桌听起来不错。",
+          "vocab": ["during dinner", "sounds nice"]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "image": "visuals/lesson06/scene-03.jpg",
+      "title_en": "Checking the Size",
+      "title_zh": "确认餐桌尺寸",
+      "description": "Li Wei explains table diameter and chair space.",
+      "lines": [
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "For six people, this table is 1.35 meters in diameter.",
+          "zh": "六人使用的话，这张桌子直径是一点三五米。",
+          "vocab": ["diameter", "1.35 meters"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "How much space should I leave around it?",
+          "zh": "周围需要留多少空间？",
+          "vocab": ["leave around"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Please leave at least eighty centimeters for chairs and walking space.",
+          "zh": "请至少留八十厘米，用来放椅子和走动。",
+          "vocab": ["eighty centimeters", "walking space"]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "image": "visuals/lesson06/scene-04.jpg",
+      "title_en": "Testing Chair Comfort",
+      "title_zh": "试坐餐椅",
+      "description": "Mr. Zhang tests the dining chairs and asks about cushions.",
+      "lines": [
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "These chairs look elegant. Are they comfortable for a long dinner?",
+          "zh": "这些椅子看起来很优雅。长时间吃饭舒服吗？",
+          "vocab": ["elegant", "long dinner"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Yes. The curved back supports your waist, and the cushion is high-density foam.",
+          "zh": "舒服。弧形靠背支撑腰部，坐垫是高密度海绵。",
+          "vocab": ["curved back", "supports", "high-density foam"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "I like that the chair is light but still stable.",
+          "zh": "我喜欢这把椅子轻便但仍然稳固。",
+          "vocab": ["light", "stable"]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "image": "visuals/lesson06/scene-05.jpg",
+      "title_en": "Materials and Finish",
+      "title_zh": "材质与表面处理",
+      "description": "They discuss wood, veneer, and easy cleaning.",
+      "lines": [
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Is the tabletop solid wood or veneer?",
+          "zh": "桌面是实木还是贴皮？",
+          "vocab": ["tabletop", "solid wood", "veneer"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "It has a solid wood frame and a durable veneer surface.",
+          "zh": "它是实木框架，表面是耐用贴皮。",
+          "vocab": ["solid wood frame", "durable veneer"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "The surface is sealed, so it is easy to wipe clean after meals.",
+          "zh": "表面做了封闭处理，饭后很容易擦干净。",
+          "vocab": ["sealed", "wipe clean"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "That is important because we have children at home.",
+          "zh": "这很重要，因为家里有孩子。",
+          "vocab": ["important", "children"]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "image": "visuals/lesson06/scene-06.jpg",
+      "title_en": "Adding a Sideboard",
+      "title_zh": "搭配餐边柜",
+      "description": "Li Wei recommends a matching sideboard for storage.",
+      "lines": [
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "This sideboard matches the table and gives you extra storage.",
+          "zh": "这个餐边柜和餐桌配套，还能提供额外收纳。",
+          "vocab": ["sideboard", "matches", "extra storage"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Can it hold plates, glasses, and tablecloths?",
+          "zh": "它能放盘子、杯子和桌布吗？",
+          "vocab": ["plates", "glasses", "tablecloths"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Yes, the drawers are deep, and the doors close softly.",
+          "zh": "可以，抽屉很深，柜门也是缓慢静音关闭。",
+          "vocab": ["drawers", "close softly"]
+        }
+      ]
+    }
+  ],
+  "key_vocab_summary": [
+    "dining room", "matching cabinets", "set for six", "space-saving",
+    "rectangular table", "round table", "fits against a wall", "diameter",
+    "walking space", "elegant", "curved back", "high-density foam", "stable",
+    "tabletop", "solid wood", "veneer", "durable veneer", "sealed",
+    "wipe clean", "sideboard", "extra storage", "plates", "drawers", "close softly"
+  ]
+}

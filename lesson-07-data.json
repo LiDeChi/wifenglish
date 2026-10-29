@@ -1,0 +1,204 @@
+{
+  "lesson_id": "bedroom-furniture-recommendation-07",
+  "title_en": "Bedroom Furniture Recommendations",
+  "title_zh": "卧室家具推荐",
+  "description": "Li Wei helps Mr. Zhang choose a bed, mattress, wardrobe, and bedside tables for a bedroom.",
+  "visual_style": "See style-guide.md for full consistency rules",
+  "scenes": [
+    {
+      "id": 1,
+      "image": "visuals/lesson07/scene-01.jpg",
+      "title_en": "Understanding the Bedroom",
+      "title_zh": "了解卧室情况",
+      "description": "Mr. Zhang explains the size and needs of his bedroom.",
+      "lines": [
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Before I recommend bedroom furniture, may I ask about your room size?",
+          "zh": "在推荐卧室家具前，我可以问一下您的房间尺寸吗？",
+          "vocab": ["recommend", "bedroom furniture", "room size"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "The bedroom is about twelve square meters, and I need more storage.",
+          "zh": "卧室大约十二平方米，我需要更多收纳。",
+          "vocab": ["twelve square meters", "storage"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Then we should balance comfort, storage, and walking space.",
+          "zh": "那我们要平衡舒适、收纳和走动空间。",
+          "vocab": ["balance", "comfort", "walking space"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "image": "visuals/lesson07/scene-02.jpg",
+      "title_en": "Choosing the Bed Size",
+      "title_zh": "选择床的尺寸",
+      "description": "They compare queen and king size beds.",
+      "lines": [
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Should I choose a queen size bed or a king size bed?",
+          "zh": "我应该选标准双人床还是特大双人床？",
+          "vocab": ["queen size bed", "king size bed"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "For twelve square meters, a queen size bed will leave more space.",
+          "zh": "十二平方米的话，标准双人床会留下更多空间。",
+          "vocab": ["leave more space"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "That makes sense. I do not want the room to feel too tight.",
+          "zh": "有道理。我不想让房间感觉太挤。",
+          "vocab": ["makes sense", "too tight"]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "image": "visuals/lesson07/scene-03.jpg",
+      "title_en": "Trying the Mattress",
+      "title_zh": "试躺床垫",
+      "description": "Li Wei explains mattress firmness and support.",
+      "lines": [
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "This mattress is medium firm, so it supports your back without feeling hard.",
+          "zh": "这款床垫是中等偏硬，可以支撑背部但不会感觉太硬。",
+          "vocab": ["mattress", "medium firm", "supports your back"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "I usually sleep on my side. Is it suitable for me?",
+          "zh": "我通常侧睡。它适合我吗？",
+          "vocab": ["sleep on my side", "suitable"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Yes. It relieves pressure on your shoulders and hips.",
+          "zh": "适合。它能减轻肩膀和髋部压力。",
+          "vocab": ["relieves pressure", "shoulders", "hips"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "It feels supportive but not stiff.",
+          "zh": "感觉有支撑，但不僵硬。",
+          "vocab": ["supportive", "stiff"]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "image": "visuals/lesson07/scene-04.jpg",
+      "title_en": "Wardrobe Storage",
+      "title_zh": "衣柜收纳",
+      "description": "They discuss wardrobe doors, shelves, and hanging space.",
+      "lines": [
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "I need a wardrobe with enough hanging space for coats.",
+          "zh": "我需要一个有足够挂衣空间放外套的衣柜。",
+          "vocab": ["wardrobe", "hanging space", "coats"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "This one has sliding doors, shelves, and two hanging rails.",
+          "zh": "这款有推拉门、层板和两根挂衣杆。",
+          "vocab": ["sliding doors", "shelves", "hanging rails"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Sliding doors are better because the aisle is narrow.",
+          "zh": "推拉门更好，因为过道比较窄。",
+          "vocab": ["aisle", "narrow"]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "image": "visuals/lesson07/scene-05.jpg",
+      "title_en": "Bedside Tables and Lighting",
+      "title_zh": "床头柜与照明",
+      "description": "Li Wei recommends bedside tables and a reading lamp.",
+      "lines": [
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "I suggest two bedside tables with drawers for small items.",
+          "zh": "我建议配两个带抽屉的床头柜，用来放小物件。",
+          "vocab": ["bedside tables", "drawers", "small items"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Can one side include a reading lamp?",
+          "zh": "一侧可以配阅读灯吗？",
+          "vocab": ["reading lamp"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Yes. We have a matching lamp with warm adjustable light.",
+          "zh": "可以。我们有一款配套灯，暖光可以调节。",
+          "vocab": ["matching lamp", "adjustable light"]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "image": "visuals/lesson07/scene-06.jpg",
+      "title_en": "A Complete Bedroom Plan",
+      "title_zh": "完整卧室方案",
+      "description": "They summarize the bedroom furniture plan.",
+      "lines": [
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "So the plan is a queen bed, a medium firm mattress, a wardrobe, and two bedside tables.",
+          "zh": "所以方案是标准双人床、中等偏硬床垫、衣柜和两个床头柜。",
+          "vocab": ["plan", "medium firm mattress"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "That sounds complete. Can you prepare a quotation for this bedroom set?",
+          "zh": "听起来很完整。您能为这套卧室家具准备报价吗？",
+          "vocab": ["complete", "quotation", "bedroom set"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Of course. I will list each item and the total price clearly.",
+          "zh": "当然。我会清楚列出每件产品和总价。",
+          "vocab": ["list each item", "total price"]
+        }
+      ]
+    }
+  ],
+  "key_vocab_summary": [
+    "recommend", "bedroom furniture", "room size", "storage", "balance",
+    "queen size bed", "king size bed", "leave more space", "mattress",
+    "medium firm", "supports your back", "sleep on my side", "relieves pressure",
+    "wardrobe", "hanging space", "sliding doors", "shelves", "hanging rails",
+    "bedside tables", "reading lamp", "adjustable light", "quotation",
+    "bedroom set", "total price"
+  ]
+}

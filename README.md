@@ -28,6 +28,15 @@ python3 -m http.server 5173
 ```
 
 ## Audio Generation (Boson Higgs)
+Create a local `.env.local` file in the project root:
+
+```bash
+BOSON_API_KEY=your_boson_api_key
+```
+
+The generation scripts load `.env.local` automatically. You can still override it
+for one shell session with:
+
 ```bash
 export BOSON_API_KEY=your_boson_api_key
 python3 scripts/tts_boson.py \
@@ -36,14 +45,27 @@ python3 scripts/tts_boson.py \
 ```
 
 For dialogue lessons where the same speaker must keep a consistent voice across every
-line, prefer the reusable custom voice workflow:
+line, use the reusable custom voice workflow. This is the default path for final
+lesson audio:
 
 ```bash
 python3 scripts/generate_lesson_audio_ref.py \
-  --lesson lesson-data.json \
-  --output-dir audio/lesson01 \
-  --force \
-  --sync-web-dir web/audio/lesson01
+  --lesson-number 01 \
+  --force
+```
+
+To regenerate every configured lesson in `scripts/lesson_audio_manifest.json`:
+
+```bash
+python3 scripts/generate_lesson_audio_ref.py --all --force
+```
+
+Before reporting audio work as done, verify both the generated files and the web
+copies:
+
+```bash
+python3 scripts/generate_lesson_audio_ref.py --all --status
+python3 scripts/generate_lesson_audio_ref.py --all --verify-web
 ```
 
 ## Generate Images (APIMart)

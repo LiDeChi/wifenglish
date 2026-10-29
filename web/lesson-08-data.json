@@ -1,0 +1,218 @@
+{
+  "lesson_id": "custom-size-color-material-08",
+  "title_en": "Custom Sizes, Colors, and Materials",
+  "title_zh": "定制尺寸、颜色和材质",
+  "description": "Mr. Zhang asks how to customize a sofa size, fabric color, material, and delivery details.",
+  "visual_style": "See style-guide.md for full consistency rules",
+  "scenes": [
+    {
+      "id": 1,
+      "image": "visuals/lesson08/scene-01.jpg",
+      "title_en": "Asking About Customization",
+      "title_zh": "询问定制服务",
+      "description": "Mr. Zhang asks whether the sofa can be customized.",
+      "lines": [
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Can this sofa be customized for my living room?",
+          "zh": "这款沙发可以按我的客厅定制吗？",
+          "vocab": ["customized", "living room"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Yes. We can customize the size, color, fabric, and leg style.",
+          "zh": "可以。我们可以定制尺寸、颜色、面料和沙发脚款式。",
+          "vocab": ["customize", "size", "fabric", "leg style"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Good. I brought the measurements of my room.",
+          "zh": "好的。我带来了房间尺寸。",
+          "vocab": ["measurements"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "image": "visuals/lesson08/scene-02.jpg",
+      "title_en": "Confirming the Exact Size",
+      "title_zh": "确认精确尺寸",
+      "description": "They review the target sofa length, depth, and chaise side.",
+      "lines": [
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "What exact length and depth do you need?",
+          "zh": "您需要的精确长度和深度是多少？",
+          "vocab": ["exact length", "depth"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "The sofa should be 2.6 meters long and 95 centimeters deep.",
+          "zh": "沙发应该长二点六米，深九十五厘米。",
+          "vocab": ["2.6 meters", "95 centimeters"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Do you want the chaise on the left side or the right side?",
+          "zh": "贵妃位您想放左边还是右边？",
+          "vocab": ["chaise", "left side", "right side"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Please put it on the right side when facing the sofa.",
+          "zh": "面对沙发时，请把它放在右边。",
+          "vocab": ["facing the sofa"]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "image": "visuals/lesson08/scene-03.jpg",
+      "title_en": "Choosing Fabric Color",
+      "title_zh": "选择面料颜色",
+      "description": "Li Wei shows color swatches and explains how colors look at home.",
+      "lines": [
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Here are our fabric swatches. Which color matches your home?",
+          "zh": "这里是我们的面料色卡。哪种颜色和您家更搭？",
+          "vocab": ["fabric swatches", "matches your home"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "I like warm gray, but I worry it may look too dark.",
+          "zh": "我喜欢暖灰色，但担心看起来太暗。",
+          "vocab": ["warm gray", "too dark"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "In natural light, this warm gray looks soft and clean.",
+          "zh": "在自然光下，这个暖灰色看起来柔和干净。",
+          "vocab": ["natural light", "soft", "clean"]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "image": "visuals/lesson08/scene-04.jpg",
+      "title_en": "Comparing Materials",
+      "title_zh": "比较材质",
+      "description": "They compare fabric, leather, and performance fabric.",
+      "lines": [
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Which material is best for daily family use?",
+          "zh": "哪种材质最适合家庭日常使用？",
+          "vocab": ["material", "daily family use"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Performance fabric is a good choice because it resists stains and is easy to clean.",
+          "zh": "功能面料是不错的选择，因为它防污且容易清洁。",
+          "vocab": ["performance fabric", "resists stains", "easy to clean"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Is it more expensive than regular fabric?",
+          "zh": "它比普通面料更贵吗？",
+          "vocab": ["more expensive", "regular fabric"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "It costs about ten percent more, but it lasts longer.",
+          "zh": "大约贵百分之十，但使用寿命更长。",
+          "vocab": ["ten percent more", "lasts longer"]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "image": "visuals/lesson08/scene-05.jpg",
+      "title_en": "Approving a Sample",
+      "title_zh": "确认样品",
+      "description": "Li Wei explains sample approval before production.",
+      "lines": [
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Before production, we can send you a small fabric sample for approval.",
+          "zh": "生产前，我们可以给您寄一小块面料样品确认。",
+          "vocab": ["production", "fabric sample", "approval"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "That would help. I want to check the color under my home lighting.",
+          "zh": "这会有帮助。我想在家里的灯光下确认颜色。",
+          "vocab": ["home lighting", "check the color"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "Once you approve it, we will start production immediately.",
+          "zh": "您确认后，我们会马上开始生产。",
+          "vocab": ["approve", "start production", "immediately"]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "image": "visuals/lesson08/scene-06.jpg",
+      "title_en": "Lead Time and Final Details",
+      "title_zh": "交期与最终细节",
+      "description": "They confirm lead time, deposit, and final specification.",
+      "lines": [
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "How long does a custom order usually take?",
+          "zh": "定制订单通常需要多长时间？",
+          "vocab": ["custom order", "usually take"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "The lead time is about four to six weeks after the deposit.",
+          "zh": "支付定金后，交期大约四到六周。",
+          "vocab": ["lead time", "four to six weeks", "deposit"]
+        },
+        {
+          "speaker": "Mr. Zhang",
+          "role": "customer",
+          "en": "Please write the size, right-side chaise, warm gray fabric, and lead time on the order.",
+          "zh": "请在订单上写明尺寸、右贵妃、暖灰色面料和交期。",
+          "vocab": ["right-side chaise", "lead time", "order"]
+        },
+        {
+          "speaker": "Li Wei",
+          "role": "sales",
+          "en": "No problem. I will double-check every detail before you sign.",
+          "zh": "没问题。您签字前我会再次核对每个细节。",
+          "vocab": ["double-check", "sign"]
+        }
+      ]
+    }
+  ],
+  "key_vocab_summary": [
+    "customized", "customize", "measurements", "exact length", "depth",
+    "chaise", "left side", "right side", "fabric swatches", "warm gray",
+    "natural light", "material", "daily family use", "performance fabric",
+    "resists stains", "regular fabric", "ten percent more", "production",
+    "fabric sample", "approval", "home lighting", "start production",
+    "custom order", "lead time", "deposit", "right-side chaise", "double-check"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "lessons": [
+    {
+      "number": "01",
+      "lesson": "lesson-data.json",
+      "output_dir": "audio/lesson01",
+      "web_output_dir": "web/audio/lesson01"
+    },
+    {
+      "number": "02",
+      "lesson": "lesson-02-data.json",
+      "output_dir": "audio/lesson02",
+      "web_output_dir": "web/audio/lesson02"
+    },
+    {
+      "number": "03",
+      "lesson": "lesson-03-data.json",
+      "output_dir": "audio/lesson03",
+      "web_output_dir": "web/audio/lesson03"
+    },
+    {
+      "number": "04",
+      "lesson": "lesson-04-data.json",
+      "output_dir": "audio/lesson04",
+      "web_output_dir": "web/audio/lesson04"
+    },
+    {
+      "number": "05",
+      "lesson": "lesson-05-data.json",
+      "output_dir": "audio/lesson05",
+      "web_output_dir": "web/audio/lesson05"
+    },
+    {
+      "number": "06",
+      "lesson": "lesson-06-data.json",
+      "output_dir": "audio/lesson06",
+      "web_output_dir": "web/audio/lesson06"
+    },
+    {
+      "number": "07",
+      "lesson": "lesson-07-data.json",
+      "output_dir": "audio/lesson07",
+      "web_output_dir": "web/audio/lesson07"
+    },
+    {
+      "number": "08",
+      "lesson": "lesson-08-data.json",
+      "output_dir": "audio/lesson08",
+      "web_output_dir": "web/audio/lesson08"
+    }
+  ]
+}
